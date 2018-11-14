@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+		<package name="jgxq_default" extends="struts-default" >
+		<action name="jgxqedit" class="securityccb.jgxq.action.JgxqEdit">
+			<result name="success">/page/jgxq/edit_success.jsp</result>
+		</action>
+		<action name="showjgxq" class="securityccb.jgxq.action.ShowJgxq">
+			<result name="success">/page/jgxq/showjgxq.jsp</result>
+			<result name="chaxun">/page/jgxq/showjgxqcx.jsp</result>
+		</action>
+		
+	</package>
+</struts>    

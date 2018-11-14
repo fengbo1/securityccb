@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<table name="chu" catalog="securityccb" class="Chu">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="jigou" catalog="securityccb" class="JiGou">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="area" catalog="securityccb" class="Area">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="userinfo" catalog="securityccb" class="UserInfo">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="paiban" catalog="securityccb" class="PaiBan">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="zhibanneirong" catalog="securityccb"
+		class="ZhiBanNeirong">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="zhiban" catalog="securityccb" class="ZhiBan">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="record" catalog="securityccb" class="Record">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="file" catalog="securityccb" class="File">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="process" catalog="securityccb" class="Process">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="khps" catalog="securityccb" class="Khps">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="kpxm" catalog="securityccb" class="Kpxm">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="score" catalog="securityccb" class="Score">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+<table name="scoreflag" catalog="securityccb" class="ScoreFlag">
+	<primary-key>
+		<generator class="native"></generator>
+	</primary-key>
+</table>
+	<table name="operate" catalog="securityccb" class="Operate">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="gzjh" catalog="securityccb" class="Gzjh">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="jgxq" catalog="securityccb" class="Jgxq">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+    <table name="ndzj" catalog="securityccb" class="Ndzj">
+	    <primary-key>
+		    <generator class="native"></generator>
+	    </primary-key>
+    </table>
+</hibernate-reverse-engineering>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="zhiban_default" extends="struts-default" >	
+		
+		<action name="zhiban" class="securityccb.zhiban.action.ZhiBanAction">
+			<result name="success">/page/zhiban/zhiban/zhiban.jsp</result>			
+		</action>
+  
+	
+		
+		<action name="ZhiBanArea" class="securityccb.zhiban.action.ZhiBanArea">
+			<result name="success">/page/zhiban/zhiban/zhibanarea.jsp</result>			
+		</action>
+		
+		<action name="zhibanareaadd" class="securityccb.zhiban.action.ZhiBanAreaAdd">
+			<result name="success">/page/zhiban/zhiban/zhiban.jsp</result>			
+		</action>
+		<action name="zhibanfindarea" class="securityccb.zhiban.action.ZhiBanFindArea">
+			<result name="success">/page/zhiban/zhiban/zhibanfindarea.jsp</result>			
+		</action>
+		<action name="zhibanfind" class="securityccb.zhiban.action.ZhiBanFind">
+			<result name="success">/page/zhiban/zhiban/zhibanfind.jsp</result>			
+		</action>
+		<action name="zhibanareaajax" class="securityccb.zhiban.action.ZhiBanAreaAjax">
+			<result name="success">/page/zhiban/zhiban/zhibanareaajax.jsp</result>			
+		</action>
+		
+  
+</package>	
+</struts>    

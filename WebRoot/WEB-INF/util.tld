@@ -1,0 +1,104 @@
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+
+    <description>util</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>util</short-name>
+    <uri>http://template.fb.com/article/taglib</uri>
+	<function>
+        <description>jigouidToName</description>
+        <name>jigouidtoname</name>
+		<function-class>securityccb.util.KhpsUtil</function-class>
+		<function-signature>java.lang.String JigouidToName( java.lang.String)</function-signature>
+    </function>
+    <function>
+        <description>optionToString</description>
+        <name>optiontostring</name>
+		<function-class>securityccb.util.KhpsUtil</function-class>
+		<function-signature>java.lang.String OptionToString( java.lang.Integer)</function-signature>
+    </function>
+    <function>
+        <description>idToName</description>
+        <name>idtoname</name>
+		<function-class>securityccb.util.KhpsUtil</function-class>
+		<function-signature>java.lang.String IdtoName( java.lang.String)</function-signature>
+    </function>
+    <function>
+        <description>statusToName</description>
+        <name>statustoname</name>
+		<function-class>securityccb.util.KhpsUtil</function-class>
+		<function-signature>java.lang.String StatustoName( java.lang.String,securityccb.khps.pojo.Khps)</function-signature>
+    </function>
+     <function>
+        <description>doubleto1</description>
+        <name>doubleto1</name>
+		<function-class>securityccb.util.KhpsUtil</function-class>
+		<function-signature>java.lang.Double DoubleTo1( java.lang.Double)</function-signature>
+    </function>
+     <function>
+        <description>doubleto2</description>
+        <name>doubleto2</name>
+		<function-class>securityccb.util.KhpsUtil</function-class>
+		<function-signature>java.lang.Double DoubleTo2( java.lang.Double)</function-signature>
+    </function>    
+     <function>
+        <description>findstatusbyjigouid</description>
+        <name>findstatusbyjgid</name>
+		<function-class>securityccb.util.KhpsUtil</function-class>
+		<function-signature>java.lang.String FindStatusByjgid( java.lang.String)</function-signature>
+    </function>
+     <function>
+        <description>KhxmItemToString</description>
+        <name>khxmitemtostring</name>
+		<function-class>securityccb.util.KhpsUtil</function-class>
+		<function-signature>java.lang.String KhxmItemToString( java.lang.String)</function-signature>
+    </function>
+    <function>
+        <description>canoperate</description>
+        <name>canoperate</name>
+		<function-class>securityccb.util.Util</function-class>
+		<function-signature>java.lang.String CanOperate(java.lang.String)</function-signature>
+    </function>
+        <function>
+        <description>canpaiban</description>
+        <name>canpaiban</name>
+		<function-class>securityccb.util.Util</function-class>
+		<function-signature>java.lang.String CanPaiban(java.lang.String)</function-signature>
+    </function>
+
+        <function>
+        <description>zhibanarea</description>
+        <name>zhibanarea</name>
+		<function-class>securityccb.util.Util</function-class>
+		<function-signature>java.lang.String zhibanarea(java.lang.String,java.lang.String)</function-signature>
+    </function>
+
+    <function>
+     <description>encodeUrlToGB2312</description>
+        <name>encodeurltoGB2312</name>
+		<function-class>securityccb.util.Util</function-class>
+		<function-signature>java.lang.String encodeUrlToGB2312(java.lang.String)</function-signature>
+    </function>
+   <function>
+     <description>CanPingfen</description>
+        <name>canpingfen</name>
+		<function-class>securityccb.util.Util</function-class>
+		<function-signature>java.boolean CanPingfen()</function-signature>
+    </function>
+     <function>
+     <description>dateToStandard</description>
+        <name>datetostandard</name>
+		<function-class>securityccb.util.Util</function-class>
+		<function-signature>java.lang.String dateToStandard(java.lang.String)</function-signature>
+    </function>
+    
+    <function>
+     <description>numberToRoledesc</description>
+        <name>numbertoroledesc</name>
+		<function-class>securityccb.util.Util</function-class>
+		<function-signature>java.lang.String numberToRoledesc(java.lang.String)</function-signature>
+    </function>
+    
+</taglib>

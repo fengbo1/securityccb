@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="user_default" extends="struts-default" >
+
+		<action name="login" class="securityccb.userinfo.action.UserLogin">
+			<result name="success">/page/securityccb.jsp</result>
+			<result name="anbaobu">/page/anbaobu/anbaobu.jsp</result>
+			<result name="false">/index.jsp</result>
+		</action>
+		<action name="usertomodify" class="securityccb.userinfo.action.UserToModify">
+			<result name="success">/page/userinfo/modify.jsp</result>
+		</action>
+		<action name="usermodify" class="securityccb.userinfo.action.UserModify">
+			<result name="success">/page/userinfo/modifysuccess.jsp</result>
+			<result name="false">/page/userinfo/modify.jsp</result>
+		</action>
+		<action name="userinfo" class="securityccb.userinfo.action.UserInfoAction">
+			<result name="success">/page/system/user.jsp</result>
+			
+		</action>
+		<action name="userDel" class="securityccb.userinfo.action.UserInfoDel">
+			<result name="success">/page/system/user_del_success.jsp</result>			
+		</action>
+		<action name="UserAddFind" class="securityccb.userinfo.action.UserAddFind">
+			<result name="success_userinfo">/page/system/userAdd.jsp</result>			
+		</action>
+		<action name="UserAddAjax" class="securityccb.userinfo.action.UserAddAjax">
+			<result name="areaname">/page/system/userAddajax.jsp</result>			
+		</action>
+		<action name="UserAdd" class="securityccb.userinfo.action.UserAdd">
+			<result name="success">/page/system/user_add_sucess.jsp</result>			
+		</action>
+		<action name="address" class="securityccb.userinfo.action.AddressAction">
+			<result name="success">/page/system/address.jsp</result>			
+		</action> 
+		<action name="addchange" class="securityccb.userinfo.action.AddressChange">
+			<result name="success">/page/system/address_change.jsp</result>			
+		</action> 
+		<action name="AddressChangeok" class="securityccb.userinfo.action.AddressChangeOk">
+			<result name="success">/page/system/address_change_success.jsp</result>			
+		</action> 
+			<action name="useraddfindnewnumber" class="securityccb.userinfo.action.UserAddFindNewnumber">
+			<result name="success">/page/system/useadd_find_newnumeber_ajax.jsp</result>			
+		</action>
+		
+		<action name="userinfo_up" class="securityccb.userinfo.action.UserAddUpFile">
+			<result name="success">/page/system/user_add_sucess.jsp</result>	
+			<result name="false">/page/system/user_add_false.jsp</result>		
+		</action>
+		<action name="userChange" class="securityccb.userinfo.action.UserChange">
+			<result name="success">/page/system/userChange.jsp</result>			
+		</action>
+		<action name="UserChangeok" class="securityccb.userinfo.action.UserChangeOk">
+			<result name="success">/page/system/user_change_success.jsp</result>			
+		</action>
+		<action name="userfind" class="securityccb.userinfo.action.UserInfoAction">
+			<result name="success">/page/system/user.jsp</result>			
+		</action>
+  
+  
+	</package>
+</struts>    

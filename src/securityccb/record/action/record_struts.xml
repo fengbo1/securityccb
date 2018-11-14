@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="record_default" extends="struts-default" >
+
+        <action name="record" class="securityccb.record.action.RecordAction">  
+           
+            <result name="success">/page/record/record.jsp</result> 
+           
+        </action> 
+         <action name="write_record" class="securityccb.record.action.WriteAction">            
+            <result name="success">/page/record/beforerecord.jsp</result>            
+        </action>
+
+		 <action name="delrecordurl" class="securityccb.record.action.DelRecordUrl">            
+            <result name="success">/page/record/beforerecord.jsp</result>            
+        </action>
+
+	</package>
+</struts>    

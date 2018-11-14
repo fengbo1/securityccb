@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<struts>
+	<!-- 引入其他配置文件  -->
+	<include file="securityccb/userinfo/action/userinfo_struts.xml"></include>
+	<include file="securityccb/chu/action/chu_struts.xml"></include>
+	<include file="securityccb/jigou/action/jigou_struts.xml"></include>
+	<include file="securityccb/area/action/area_struts.xml"></include>
+	<include file="securityccb/paiban/action/paiban_struts.xml"></include>
+	<include file="securityccb/zhibanneirong/action/zhibanneirong_struts.xml"></include>
+	<include file="securityccb/zhiban/action/zhiban_struts.xml"></include>
+	<include file="securityccb/record/action/record_struts.xml"></include>
+	<include file="securityccb/file/action/file_struts.xml"></include>
+	<include file="securityccb/process/action/process_struts.xml"></include>
+    <include file="securityccb/kpxm/action/kpxm_struts.xml"></include>
+    <include file="securityccb/score/action/score_struts.xml"></include>
+    <include file="securityccb/khps/action/khps_struts.xml"></include>
+ 	<include file="securityccb/config/action/config_struts.xml"></include>
+    <include file="securityccb/jigou/action/jigou_struts.xml"></include>
+    <include file="securityccb/upfile/upfile_struts.xml"></include>
+    <include file="securityccb/downfile/downfile_struts.xml"></include>
+    <include file="securityccb/plan/action/plan_struts.xml"></include>
+    <include file="securityccb/othercompany/action/othercompany_struts.xml"></include>
+    <include file="securityccb/jgxq/action/jgxq_struts.xml"></include>
+    <include file="securityccb/gzjh/action/gzjh_struts.xml"></include>
+    <include file="securityccb/ndzj/action/ndzj_struts.xml"></include>
+</struts>

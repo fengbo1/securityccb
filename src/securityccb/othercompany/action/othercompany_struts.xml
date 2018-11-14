@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="othercompany_default" extends="struts-default" >
+
+		<action name="other" class="securityccb.othercompany.action.OtherAction">
+			<result name="success">/page/othercompany/othercompany.jsp</result>
+		</action>
+		
+		<action name="otherAdd" class="securityccb.othercompany.action.OtherAdd">
+			<result name="success">/page/othercompany/other_add_success.jsp</result>
+		</action>
+		
+		<action name="otherdel" class="securityccb.othercompany.action.OtherDel">
+			<result name="success">/page/othercompany/other_add_success.jsp</result>
+		</action>	
+		<action name="otherchange" class="securityccb.othercompany.action.OtherChange">
+			<result name="success">/page/othercompany/otherChange.jsp</result>
+		</action>	
+		<action name="otherchangeok" class="securityccb.othercompany.action.OtherChangeOk">
+			<result name="success">/page/othercompany/other_add_success.jsp</result>
+		</action>	
+	</package>
+</struts>    

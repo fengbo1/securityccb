@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="kpxm_default" extends="struts-default" >
+
+		<action name="kpxm" class="securityccb.kpxm.action.KpxmAction">
+			<result name="success">/page/kaoping/kaohexiangmu/kaohexiangmu.jsp</result>
+			<result name="chushihua">/page/kaoping/kaohexiangmu/scorexuanze.jsp</result>
+		</action>
+		<action name="showkpxm" class="securityccb.kpxm.action.ShowKpxmAction">
+			<result name="success">/page/kaoping/kaohexiangmu/showkpxm.jsp</result>
+		</action>
+		<action name="chushihuascore" class="securityccb.kpxm.action.ChushihuaAction">
+			<result name="success">/page/kaoping/kaohexiangmu/beforekpxm.jsp</result>
+		</action>
+	</package>
+</struts>    

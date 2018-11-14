@@ -1,0 +1,96 @@
+@charset "utf-8";
+/*页面表格填充内容定义*/
+.表格表头背景 td{
+	border:0px;
+	background-color:#BFD3FC; 
+	/*#F4F9FD;*/
+}
+/*页面表格填充内容字体颜色定义*/
+.表格表头背景  td {
+	/*color: #041C53;*/
+	color: #000000;
+	font-size: 14px;
+	font-weight: lighter ;
+	font-family: '黑体';	
+}
+.表格表头背景  td div a {
+	/*color: #041C53;*/
+	color: #000000;
+	font-size: 14px;
+	font-weight: lighter ;
+	font-family: '黑体';	
+}
+/*页面表格第一行背景颜色定义*/
+.表格表头背景1 td {
+	background-color: #188ae7;
+	/*;#1778C2; #0055E3*/
+	border: 0px;
+
+}
+/*页面表格第一行字体定义*/
+.表格表头背景1 td div p {
+	color: #ffffff;
+	font-family: '黑体';	
+}
+/*标题不滚动*/
+.fixedHead { 
+position: relative; 
+top:expression(this.offsetParent.scrollTop-2); 
+} 
+.abutton1 { 
+    padding: 3px 15px;
+	font-size: 12px;
+	text-align: center;
+	text-shadow: 0px 1px 0px #CCCCCC;
+	border: 1px solid #80AD10;
+	border-radius: 2px;
+	background: #A5D62D;
+	background-image: -webkit-linear-gradient(top, #A5D62D, #9AC827);
+	color: #000;
+	cursor: auto;
+	display: inline-block; } 
+	
+.abutton {   
+    display: inline-block;   
+    font-size: 13px;   
+    line-height: 27px;   
+    height: 27px;   
+    padding: 0 10px;   
+    background: -webkit-linear-gradient(top, #5bbfd8, #449fb6);   
+    background: -moz-linear-gradient(top, #5bbfd8, #449fb6);   
+    border: 1px solid #2c96b2;   
+    border-radius: 5px;   
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);   
+} 
+/*a:link { 
+color: #3B5998; 
+text-decoration: none; 
+}*/ 
+.ui { 
+color: #3B5998; 
+text-decoration: none; 
+background-image: url("a-bg.png"); 
+background-position: right top; 
+background-repeat: no-repeat; 
+font-size: 12px; 
+color: #414241; 
+font-family: "宋体","Arial","Helvetica","Verdana","sans-serif"; 
+padding-right:9px; 
+padding-top:5px; 
+padding-bottom:6px; 
+} 
+.ui span { 
+background-image: url("picture/a.png"); 
+background-position: left top; 
+background-repeat: no-repeat; 
+padding-left:9px; 
+padding-top:5px; 
+padding-bottom:6px; 
+}
+
+
+
+
+
+
+

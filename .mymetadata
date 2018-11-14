@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="securityccb"
+  id="myeclipse.1527494671609"
+  context-root="/securityccb"
+  j2ee-spec="5.0"
+  archive="securityccb.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+		<package name="khps_default" extends="struts-default" >
+		<action name="showkhps" class="securityccb.khps.action.ShowKhpsAll">
+			<result name="success">/page/kaohe/pingshen/khps_all.jsp</result>
+		</action>
+		<action name="khpscx" class="securityccb.khps.action.KhpsCx">
+			<result name="success">/page/kaohe/pingshen/khpscx.jsp</result>
+		</action>
+		<action name="singlekhps" class="securityccb.khps.action.ShowKhps">
+			<result name="success">/page/kaohe/pingshen/khps.jsp</result>
+		</action>
+		
+		<action name="khps" class="securityccb.khps.action.KhShenpi">
+			<result name="success">/page/kaohe/pingshen/under_success.jsp</result>
+		</action>
+		
+		<action name="commitall" class="securityccb.khps.action.ShenPiAll">
+			<result name="success">/page/kaohe/pingshen/khjs.jsp</result>
+		</action>
+		<action name="showkhjd" class="securityccb.khps.action.ShowKhjd">
+			<result name="success">/page/kaohe/pingshen/showkhjd.jsp</result>
+		</action>
+		<action name="sendkhps" class="securityccb.khps.action.SendKhps">
+			<result name="success">/page/kaohe/pingshen/khjd_sucess.jsp</result>
+		</action>
+		<action name="xiazaikhps" class="securityccb.khps.action.ExportKhps">
+			<result name="success">/page/public/derivedetail.jsp</result>
+		</action>
+		
+	</package>
+</struts>    

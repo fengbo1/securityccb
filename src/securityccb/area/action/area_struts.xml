@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="area_default" extends="struts-default" >
+
+		<action name="area" class="securityccb.area.action.AreaAction">
+			
+			<result name="find_all_success">/page/system/area.jsp</result>
+			
+		</action>
+		<action name="areaDel" class="securityccb.area.action.areaDel">
+			
+			<result name="success">/page/system/area_add_success.jsp</result>
+			
+		</action>
+		<action name="areaUpdate" class="securityccb.area.action.areaUpdate">
+			
+			<result name="success">/page/system/areaUpdate.jsp</result>
+			
+		</action>
+		<action name="areaUpdateok" class="securityccb.area.action.areaUpdateok">
+			
+			<result name="success">/page/system/area_add_success.jsp</result>
+			
+		</action>
+		<action name="areaAdd" class="securityccb.area.action.areaAdd">
+			
+			<result name="success">/page/system/area_add_success.jsp</result>
+			
+		</action>
+		<action name="areafindchushi" class="securityccb.area.action.areafindchushi">
+			<result name="success">/page/system/areaAdd.jsp</result>			
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="file_default" extends="struts-default" >
+
+		<action name="file" class="securityccb.file.action.FileAction">
+			<result name="success">/page/file/file.jsp</result>
+						
+		</action>
+		<action name="fileadd" class="securityccb.file.action.FileAdd">
+			<result name="success">/page/file/file_add_success.jsp</result>
+						
+		</action>
+		<action name="fileshow" class="securityccb.file.action.FileShow">
+			<result name="success">/page/file/fileshow.jsp</result>
+						
+		</action>
+		<action name="filedel" class="securityccb.file.action.FileDel">
+			<result name="success">/page/file/file_add_success.jsp</result>
+						
+		</action>
+		<action name="filesearch" class="securityccb.file.action.FileSearch">
+			<result name="success">/page/file/file_search.jsp</result>
+						
+		</action>
+	</package>
+</struts>    

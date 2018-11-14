@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="paiban_default" extends="struts-default" >
+
+		<action name="paibanaction" class="securityccb.paiban.action.PaiBanAction">
+			<result name="success">/page/zhiban/paiban/paiban.jsp</result>
+			
+		</action>
+		<action name="PaiBanArea" class="securityccb.paiban.action.PaiBanArea">
+			<result name="success">/page/zhiban/paiban/paibanarea.jsp</result>			
+		</action>
+		<action name="paibanadd" class="securityccb.paiban.action.PaiBanAdd">
+			<result name="success">/page/zhiban/paiban/paibanarea.jsp</result>
+			
+		</action>
+		<action name="paibancheckname" class="securityccb.paiban.action.PaiBanCheckName">
+			<result name="success">/page/zhiban/paiban/paibanchecknameajax.jsp</result>
+			
+		</action>
+		<action name="paibancheck" class="securityccb.paiban.action.PaiBanCheck">
+			<result name="success">/page/zhiban/paiban/paibancheckajax.jsp</result>
+		</action>
+		<action name="paibandel" class="securityccb.paiban.action.PaiBanDel">
+			<result name="success">/page/zhiban/paiban/paibanarea.jsp</result>
+		</action>
+	</package>
+</struts>    

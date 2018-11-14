@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="plann_default" extends="struts-default" >
+
+		<action name="plan1" class="securityccb.plan.action.PlanAction">
+			<result name="success">/page/plan/plan.jsp</result>
+			
+		</action>
+		<action name="plan_add" class="securityccb.plan.action.PlanAdd">
+			<result name="success">/page/plan/plan_add_success.jsp</result>
+			
+		</action>
+		<action name="plandel" class="securityccb.plan.action.PlanDel">
+			<result name="success">/page/plan/plan_add_success.jsp</result>
+			
+		</action>
+		<action name="plan_change" class="securityccb.plan.action.PlanChange">
+			<result name="success">/page/plan/plan_change.jsp</result>
+			
+		</action>
+		<action name="planchangeok" class="securityccb.plan.action.PlanChangeOk">
+			<result name="success">/page/plan/plan_add_success.jsp</result>
+			
+		</action>
+		<action name="plan_up" class="securityccb.plan.action.PlanUpFile">
+			<result name="success">/page/plan/plan_add_success.jsp</result>
+			
+		</action>
+		
+
+	</package>
+</struts>    

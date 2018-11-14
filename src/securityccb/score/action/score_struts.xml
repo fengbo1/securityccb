@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="score_default" extends="struts-default" >
+
+        <action name="submitscore" class="securityccb.score.action.ScoreAction">  
+            <result name="success">/page/kaoping/kaohexiangmu/tijiao.jsp</result> 
+        </action> 
+         <action name="scorefind" class="securityccb.score.action.ScoreFind">  
+            <result name="success">/page/score/viewscore.jsp</result> 
+        </action> 
+         <action name="score_begin" class="securityccb.score.action.ScoreBegin">  
+            <result name="success">/page/beforeanbaobu.jsp</result> 
+        </action> 
+        <action name="score_baocun" class="securityccb.score.action.ScoreBaocun">  
+            <result name="success">/page/beforeanbaobu.jsp</result> 
+        </action> 
+		<action name="score_del" class="securityccb.score.action.ScoreDel">  
+            <result name="success">/page/beforeanbaobu.jsp</result> 
+        </action> 
+        <action name="score_detail" class="securityccb.score.action.ScoreDetail">
+			<result name="success">/page/score/scoredetail.jsp</result>
+		</action>
+		<action name="subitemscore" class="securityccb.score.action.SubItemScore">
+			<result name="success">/page/kaoping/kaohexiangmu/kaohexiangmu.jsp</result>
+			<result name="viewscore">/page/score/viewscore.jsp</result>
+		</action>
+	</package>
+</struts>    

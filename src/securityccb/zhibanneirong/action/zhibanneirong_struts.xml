@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="zhibanneirong_default" extends="struts-default" >
+
+		<action name="zhibanneirong" class="securityccb.zhibanneirong.action.ZhiBanNeirongAction">
+			
+			<result name="success">/page/zhiban/zhibanneirong/zhibanneirong.jsp</result>
+			
+		</action>
+		<action name="zhibanneirongaddfind" class="securityccb.zhibanneirong.action.ZhiBanNeirongAddFind">
+			
+			<result name="success">/page/zhiban/zhibanneirong/zhibanneirongadd.jsp</result>
+			
+		</action>
+		<action name="zhibanneirongAdd" class="securityccb.zhibanneirong.action.ZhiBanNeirongAdd">
+			
+			<result name="success">/page/zhiban/zhibanneirong/zhibanneirong.jsp</result>
+			
+		</action>
+		<action name="zbnr_up" class="securityccb.zhibanneirong.action.ZbnrUpFile">
+			
+			<result name="success">/page/zhiban/zhibanneirong/zbnr_success.jsp</result>
+			
+		</action>
+		
+		<action name="zbnr_change" class="securityccb.zhibanneirong.action.ZbnrChange">
+			
+			<result name="success">/page/zhiban/zhibanneirong/zbnr_change.jsp</result>
+			
+		</action>
+		<action name="zbnr_changeok" class="securityccb.zhibanneirong.action.ZbnrChangeOk">
+			
+			<result name="success">/page/zhiban/zhibanneirong/zbnr_change_success.jsp</result>
+			
+		</action>
+		
+		<action name="zbnrDel" class="securityccb.zhibanneirong.action.ZbnrDel">
+			
+			<result name="success">/page/zhiban/zhibanneirong/zbnr_change_success.jsp</result>
+			
+		</action>
+		
+
+	</package>
+</struts>    
