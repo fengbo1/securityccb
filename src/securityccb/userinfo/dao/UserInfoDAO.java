@@ -249,6 +249,25 @@ public class UserInfoDAO extends BaseHibernateDAO  {
 			throw re;
 		}
 	}
+    public UserInfo findAllByNewnumber(String newnumber) {
+		log.debug("finding all UserInfo instances");
+		try {
+			String queryString = "from UserInfo where newnumber='"+newnumber+"'";
+			Query queryObject = getSession().createQuery(queryString);
+			List list =  queryObject.list();
+			if(list.isEmpty())
+			{
+				return null;
+			}
+			else
+			{
+				return (UserInfo) list.get(0);
+			}
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
 	//寻找安保部综合处长newnumber
 	public UserInfo findZhChuz(){
 		log.debug("finding all UserInfo instances");

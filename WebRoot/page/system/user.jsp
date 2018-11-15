@@ -126,7 +126,7 @@ $('#zhiwu').attr('value',x[1].value);
 						<tr height="10px">
 						<td colspan="7" >
 						<a class="button small blue" href="<%=path%>/page/system/UserAddFind.action?jigouid=${jigouid}">新增</a>					
-						<a class="button small blue" href="<%=path%>/page/system/useraddup.jsp?jigouid${jigouid}&type=add">批量上传</a>	
+						<a class="button small blue" href="<%=path%>/page/system/useraddup.jsp?jigouid=${jigouid}&type=add">批量上传</a>	
 			         	<a class="button small blue" href="<%=path%>/downuserinfo.action?jigouid=${jigouid}&position=${position}">下载</a>
 					   	<a class="button small blue" href="<%=path%>/downfile/down_example/userinfo.xls">模板下载</a>
 					   

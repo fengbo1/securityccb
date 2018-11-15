@@ -189,7 +189,7 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 				ui.setRole(zhiwu.substring(0, 1));
 				ui.setQuanxian(zhiwu.substring(1, 2));				
 			}if(chushiid.equals("")){
-				message="第"+i+"处室名称不存在，上传失败";
+				message="第"+i+"行处室名称不存在，上传失败";
 				
 				return message;
 			}if(chushiid.equals("")){
@@ -244,8 +244,8 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 			//判断Telsos
 			ui.setRelation(alist.get(i).getRelation());		
 			
-			UserInfoDAO uid=new UserInfoDAO();
-			ui.setId(uid.findmaxuserinfoid(i));
+//			UserInfoDAO uid=new UserInfoDAO();
+//			ui.setId(uid.findmaxuserinfoid(i));
 			
 			blist.add(ui);			
 			
@@ -253,12 +253,27 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 		
 		
 		
-//		//删除jigouid下全部人员信息
-		String sql="delete  from userinfo where mid(position,1,3) = '"+jigouid+"'";	
-	    se.createSQLQuery(sql).executeUpdate();
+//		String sql="delete  from userinfo where mid(position,1,3) = '"+jigouid+"'";	
+//	    se.createSQLQuery(sql).executeUpdate();
 	for(int k=0;k<blist.size();k++){
-		
-		ud.mysave(blist.get(k));	
+		UserInfo uitemp = blist.get(k);
+		UserInfo uisv = ud.findAllByNewnumber(uitemp.getNewnumber());
+		if(uisv==null)
+		{
+			uisv = new UserInfo();
+		}
+		uisv.setName(uitemp.getName());
+		uisv.setPosition(uitemp.getPosition());
+		uisv.setRole(uitemp.getRole());
+		uisv.setQuanxian(uitemp.getQuanxian());
+		uisv.setNewnumber(uitemp.getNewnumber());
+		uisv.setPassword(uitemp.getPassword());
+		uisv.setAddress(uitemp.getAddress());
+		uisv.setTel(uitemp.getTel());
+		uisv.setNamesos(uitemp.getNamesos());
+		uisv.setTelsos(uitemp.getTelsos());
+		uisv.setRelation(uitemp.getRelation());	
+		ud.merge(uisv);	
 	
 	}
 		
