@@ -23,7 +23,7 @@ String jigouid= (String) request.getParameter("jigouid");
         <table>
         <tr>
     
-    <td>请选择员工信息上传:<s:file name="file"></s:file></td>  
+    <td>请选择员工信息上传(03格式):<s:file name="file"></s:file></td>  
     </tr>  
     
     <tr>  

@@ -124,15 +124,7 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 					//cell.setCellType(1);
 				//	cell.setCellValue(arg0)
 				
-				
-				
-				switch(cell.getCellType()){ //判断excel单元格内容的格式，并对其进行转换，以便插入数据库
-					case 0 : cellValue = String.valueOf((int)cell.getNumericCellValue()); break;
-					case 1 : cellValue = cell.getStringCellValue(); break;
-					case 2 : cellValue = String.valueOf(cell.getDateCellValue()); break;
-					case 3 : cellValue = ""; break;
-					case 4 : cellValue = String.valueOf(cell.getBooleanCellValue()); break;
-					case 5 : cellValue = String.valueOf(cell.getErrorCellValue()); break;
+					cellValue =  Util.getCellValue(cell, 0);
 				
 				}
 				switch(j){//通过列数来判断对应插如的字段
@@ -146,36 +138,21 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 						System.out.println("值班内容取内容："+zhibanneirong);
 						break;
 					}
-									}	
 				}						
-					
 								
 			}
 			List<WriteToZbnr> arealist=findareabyjigouid(jigouid,se);	
-			
 			
 			for (int n=0;n<arealist.size();n++){
 				if(areaname.equals(arealist.get(n).getAreaname())){
 					areaid=arealist.get(n).getAreaid();
 				}
 			}
-			
-			
-			
-			
 			ZhiBanNeirong z=new ZhiBanNeirong ();
              z.setAreaid(areaid);
              z.setZhibanneirong(zhibanneirong);
-		   
-		  
-			alist.add(z);			
+			ud.merge(z);		
 		}	
-	
-		for(int i=0;i<alist.size();i++){
-			ud.save(alist.get(i));
-		}
-		
-		
 	
 	}	
 			catch (Exception e) {

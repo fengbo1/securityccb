@@ -35,9 +35,6 @@ String jigouid= (String) request.getParameter("jigouid");
 	 <td bgcolor="#C0D3FD" align="center"> <input type="submit" value="新 增 " >
 	 </td>
 	</tr>
-	<tr>
-	<td colspan="2" style="color:red" align="center">上传后将覆盖本机构原有工作计划</td>
-	</tr>
     </table>
     </form>  
     </body>  

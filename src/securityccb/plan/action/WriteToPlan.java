@@ -56,7 +56,7 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 	tr = se.beginTransaction();
 	try{		
 		PlanDAO ud =new PlanDAO();
-		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		FileInputStream fi = new FileInputStream(target);
 		Workbook wb = new HSSFWorkbook(fi);
 		Sheet sheet = wb.getSheetAt(0);
@@ -88,17 +88,23 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 					//cell.setCellType(1);
 				//	cell.setCellValue(arg0)
 				
-				
-				
-				switch(cell.getCellType()){ //判断excel单元格内容的格式，并对其进行转换，以便插入数据库
-					case 0 : cellValue = String.valueOf((int)cell.getNumericCellValue()); break;
-					case 1 : cellValue = cell.getStringCellValue(); break;
-					case 2 : cellValue = String.valueOf(cell.getDateCellValue()); break;
-					case 3 : cellValue = ""; break;
-					case 4 : cellValue = String.valueOf(cell.getBooleanCellValue()); break;
-					case 5 : cellValue = String.valueOf(cell.getErrorCellValue()); break;
-				
-				}
+//					cellValue =  Util.getCellValue(cell, 0);
+					if(cell.getCellStyle().getDataFormatString().contains("yy"))
+					{
+						cellValue =  sdf.format(cell.getDateCellValue());
+					}
+					else
+					{
+						cellValue =  Util.getCellValue(cell, 0);
+					}
+//				switch(cell.getCellType()){ //判断excel单元格内容的格式，并对其进行转换，以便插入数据库
+//					case 0 : cellValue = String.valueOf((int)cell.getNumericCellValue()); break;
+//					case 1 : cellValue = cell.getStringCellValue(); break;
+//					case 2 : cellValue = String.valueOf(cell.getDateCellValue()); break;
+//					case 3 : cellValue = ""; break;
+//					case 4 : cellValue = String.valueOf(cell.getBooleanCellValue()); break;
+//					case 5 : cellValue = String.valueOf(cell.getErrorCellValue()); break;
+//				}
 				switch(j){//通过列数来判断对应插如的字段
 					case 0 : {
 						year=cellValue;
@@ -142,35 +148,30 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 								
 			}
 			Plan p=new Plan ();
-
-		    p.setContent(content2);
-		    p.setJigouid(jigouid);
-		    p.setMonth(month);
-		    p.setPeople(people);
-		   if(plandate==null){
-			   plandate="0000-00-00";
-		   }
-		   if(plandate.equals("")){
-			   plandate="0000-00-00";
-		   }
-			   
-		   
-		    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		    
-		   
-		    p.setPlandate(sdf.parse(plandate));
-		  
-		    p.setRemark(remark);
-		    p.setWeek(week);
-		    p.setYear(year);
-		   
-		  
-			alist.add(p);			
+			if(content2!=null&&content2.length()>1)
+		    {
+				 p.setContent(content2);
+				    p.setJigouid(jigouid);
+				    p.setMonth(month);
+				    p.setPeople(people);
+				   if(plandate==null){
+					   plandate="0000-00-00";
+				   }
+				   if(plandate.equals("")){
+					   plandate="0000-00-00";
+				   }
+				    p.setPlandate(sdf.parse(plandate+" 00:00:00"));
+				    p.setRemark(remark);
+				    p.setWeek(week);
+				    p.setYear(year);
+				    ud.merge(p);
+		    }
+			//alist.add(p);			
 		}	
 	
-		for(int i=0;i<alist.size();i++){
-			ud.save(alist.get(i));
-		}
+//		for(int i=0;i<alist.size();i++){
+//			ud.save(alist.get(i));
+//		}
 		
 		
 	

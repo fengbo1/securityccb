@@ -34,8 +34,8 @@ public class AddressAction {
 	private String position;
 	private String name;
 	private String chushi;
-	private List <UserInfo>alladdress;
-	private List <AddressList>addlist;
+	private List <UserInfo> alladdress;
+	private List <AddressList> addlist;
 
 
 

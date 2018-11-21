@@ -384,8 +384,8 @@ public class UserInfoDAO extends BaseHibernateDAO  {
 
 		List<UserInfo> ulist=null;
 		try {			
-			String sql="select * from userinfo where mid(position,3,6) = "+"'"+chushiid+"'";	
-			System.out.println(sql);		
+			String sql="select * from userinfo where mid(position,4,6) = "+"'"+chushiid+"'";	
+			System.out.println(sql);
 			query  = getSession().createSQLQuery(sql).addEntity(UserInfo.class);		
 			ulist=query.list();	
 			

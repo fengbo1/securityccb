@@ -203,7 +203,6 @@ public class UserLogin extends ActionSupport implements ServletResponseAware{
 				  ActionContext.getContext().getSession().put("quanxian", u.getQuanxian());	
 				  ActionContext.getContext().getSession().put("password", u.getPassword());	
 				  ActionContext.getContext().getSession().put("jigouid", u.getPosition().substring(0, 3));
-				  
 				 if (position.substring(0, 3).equals("000"))
 				 {
 					 return "anbaobu";

@@ -6,6 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
+import org.apache.poi.ss.usermodel.Cell;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -363,6 +366,50 @@ public class Util {
     		   }
     	   }
     	   return date;
+       }
+       
+       /**
+        * 取单元格的值
+        * @param cell 单元格对象
+        * @param treatAsStr 0:数字，字符；1：日期；2时间
+        * @return
+        */
+       public static String getCellValue(Cell cell, int type) {
+           if (cell == null) {
+               return "";
+           }
+           if (type==0) {
+               // 虽然excel中设置的都是文本，但是数字文本还被读错，如“1”取成“1.0”
+               // 加上下面这句，临时把它当做文本来读取
+               cell.setCellType(Cell.CELL_TYPE_STRING);
+           }
+           else if(type==1)
+           {
+       		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+       		return sdf.format(HSSFDateUtil.getJavaDate(cell.getNumericCellValue())).toString();
+           }
+           else if(type==2)
+           {
+           	String temp = "";
+           	SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+           	temp = sdf.format(HSSFDateUtil.getJavaDate(cell.getNumericCellValue())).toString();
+           	if(temp.startsWith("12"))
+           	{
+           		return "00"+temp.substring(2,8);
+           	}
+           	else
+           	{
+           		return temp;
+           	}
+           }
+           if (cell.getCellType() == Cell.CELL_TYPE_BOOLEAN) {
+               return String.valueOf(cell.getBooleanCellValue());
+           } else if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+           	
+               return String.valueOf(cell.getNumericCellValue());
+           } else {
+               return String.valueOf(cell.getStringCellValue());
+           }
        }
 }
 

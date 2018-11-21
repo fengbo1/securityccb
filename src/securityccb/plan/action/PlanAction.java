@@ -161,7 +161,7 @@ public class PlanAction {
 	@SuppressWarnings("unchecked")
 	public String execute() throws Exception
 	{
-		 String jigouid=position.substring(0, 3);
+		 jigouid=position.substring(0, 3);
 		 
 		 	Query query1;			
 			Session session = HibernateSessionFactory.getSession();

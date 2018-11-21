@@ -92,7 +92,7 @@ $("tr.btbj:even").css({"background-color":"#bfd3fc","font-family": "黑体","fon
 						<c:if test="${fb:canoperate(newnumber)}">	
 						 <a class="button small blue" href="<%=path%>/page/plan/plan_add.jsp">新增</a>
 						 <a class="button small blue" href="<%=path%>/downplan.action?position=<%=position %>">下载</a>				
-						<a	 class="button small blue" href="<%=path%>/page/plan/planaddup.jsp?position=<%=position %>&jigouid=<%=jigouid %>">上传</a>
+						<a	 class="button small blue" href="<%=path%>/page/plan/planaddup.jsp?position=<%=position %>&jigouid=<%=position.substring(0,3) %>">上传</a>
 						<a class="button small blue" href="<%=path%>/downfile/down_example/plan.xls">模板下载</a>	
 						</c:if>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	年&nbsp;&nbsp;<input style="width:50px"  type="text" name="year" id="boss_date" value="${year }" class="Wdate" onClick="WdatePicker()"  onfocus="WdatePicker({dateFmt: 'yyyy'})">
@@ -171,15 +171,15 @@ $("tr.btbj:even").css({"background-color":"#bfd3fc","font-family": "黑体","fon
 								</td>
 								<td width="50px" height="25" align="center" valign="middle" nowrap>
 									<div align="center">
-									<s:if test='month=="01"'>一月</s:if>
-									<s:if test='month=="02"'>二月</s:if>
-									<s:if test='month=="03"'>三月</s:if>
-									<s:if test='month=="04"'>四月</s:if>
-									<s:if test='month=="05"'>五月</s:if>
-									<s:if test='month=="06"'>六月</s:if>
-									<s:if test='month=="07"'>七月</s:if>
-									<s:if test='month=="08"'>八月</s:if>
-									<s:if test='month=="09"'>九月</s:if>
+									<s:if test='month=="01"||month=="1"'>一月</s:if>
+									<s:if test='month=="02"||month=="2"'>二月</s:if>
+									<s:if test='month=="03"||month=="3"'>三月</s:if>
+									<s:if test='month=="04"||month=="4"'>四月</s:if>
+									<s:if test='month=="05"||month=="5"'>五月</s:if>
+									<s:if test='month=="06"||month=="6"'>六月</s:if>
+									<s:if test='month=="07"||month=="7"'>七月</s:if>
+									<s:if test='month=="08"||month=="8"'>八月</s:if>
+									<s:if test='month=="09"||month=="9"'>九月</s:if>
 									<s:if test='month=="10"'>十月</s:if>
 									<s:if test='month=="11"'>十一月</s:if>
 									<s:if test='month=="12"'>十二月</s:if>								

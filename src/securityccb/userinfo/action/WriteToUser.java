@@ -88,16 +88,15 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 				Cell cell = row.getCell(j);
 				String cellValue = null;
 				if(cell!=null){
-					
-				
-				switch(cell.getCellType()){ //判断excel单元格内容的格式，并对其进行转换，以便插入数据库
-					case 0 : cellValue = String.valueOf((int)cell.getNumericCellValue()); break;
-					case 1 : cellValue = cell.getStringCellValue(); break;
-					case 2 : cellValue = String.valueOf(cell.getDateCellValue()); break;
-					case 3 : cellValue = ""; break;
-					case 4 : cellValue = String.valueOf(cell.getBooleanCellValue()); break;
-					case 5 : cellValue = String.valueOf(cell.getErrorCellValue()); break;
-				}
+//				switch(cell.getCellType()){ //判断excel单元格内容的格式，并对其进行转换，以便插入数据库
+//					case 0 : cellValue = String.valueOf((int)cell.getNumericCellValue()); break;
+//					case 1 : cellValue = cell.getStringCellValue(); break;
+//					case 2 : cellValue = String.valueOf(cell.getDateCellValue()); break;
+//					case 3 : cellValue = ""; break;
+//					case 4 : cellValue = String.valueOf(cell.getBooleanCellValue()); break;
+//					case 5 : cellValue = String.valueOf(cell.getErrorCellValue()); break;
+//				}
+					cellValue =  Util.getCellValue(cell, 0);
 				}
 				switch(j){//通过列数来判断对应插如的字段
 					case 0 : {
@@ -160,19 +159,23 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 			}
 			UserInfoUp uiup=new UserInfoUp();
 
-			uiup.setName(name);
-			uiup.setChushi(chushi);
-			uiup.setNewnumber(newnumber);
-			uiup.setPassword(password);
-			uiup.setZhiwu(zhiwu);
-			uiup.setAddress(address);
-			uiup.setTel(tel);
-			uiup.setSosname(namesos);
-			uiup.setSostel(telsos);
-			uiup.setRelation(relation);
-			alist.add(uiup);			
+			if(name!=null&&name.length()>1)
+			{
+				uiup.setName(name);
+				uiup.setChushi(chushi);
+				uiup.setNewnumber(newnumber);
+				uiup.setPassword(password);
+				uiup.setZhiwu(zhiwu);
+				uiup.setAddress(address);
+				uiup.setTel(tel);
+				uiup.setSosname(namesos);
+				uiup.setSostel(telsos);
+				uiup.setRelation(relation);
+				alist.add(uiup);	
+			}
 		}	
 		for(int i=0;i<alist.size();i++){
+			int j=i+1;
 			UserInfo ui=new UserInfo();
 			//判断名字是否超长
 			if(alist.get(i).getName().length()>32){
@@ -189,11 +192,11 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 				ui.setRole(zhiwu.substring(0, 1));
 				ui.setQuanxian(zhiwu.substring(1, 2));				
 			}if(chushiid.equals("")){
-				message="第"+i+"行处室名称不存在，上传失败";
+				message="第"+j+"行处室名称不存在，上传失败";
 				
 				return message;
 			}if(chushiid.equals("")){
-				zhiwu="第"+i+"职务不存在，上传失败";
+				zhiwu="第"+j+"行职务不存在，上传失败";
 				
 				return message;
 				
@@ -207,7 +210,7 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 			int b=checknewnumberbylist(alist,alist.get(i).getNewnumber());//看看newnumber在上传中的数量
 			
 			if(b>1){
-				message="上传文件中，新一代员工编号存在重复";
+				message="上传文件中，新一代员工编号【"+alist.get(i).getNewnumber()+"】存在重复";
 				
 				return message;
 			}
@@ -350,28 +353,30 @@ public Integer findid(String name)  {
 
 public String findzhiwu(String zhiwu)  {
 	String zhiwu1="";
-	if(zhiwu.equals("机构主要负责人")){
-		zhiwu1="13";
-	}
-	if(zhiwu.equals("机构其他负责人")){
-		zhiwu1="23";
-	}
-	if(zhiwu.equals("机构其他负责人（分管安保）")){
+	zhiwu = zhiwu.trim();
+	
+	if(zhiwu.contains("机构其他负责人")&&zhiwu.contains("分管安保")){
 		zhiwu1="24";
 	}
-	if(zhiwu.equals("机构主要负责人（兼分管安保）")){
+	else if(zhiwu.contains("机构主要负责人")&&zhiwu.contains("分管安保")){
 		zhiwu1="14";
 	}
-	if(zhiwu.equals("综合部门负责人")){
+	else if(zhiwu.contains("机构主要负责人")){
+		zhiwu1="13";
+	}
+	else if(zhiwu.contains("机构其他负责人")){
+		zhiwu1="23";
+	}
+	else if(zhiwu.contains("综合部门负责人")){
 		zhiwu1="33";
 	}
-	if(zhiwu.equals("机构安全岗")){
+	else if(zhiwu.contains("机构安全岗")){
 		zhiwu1="51";
 	}
-	if(zhiwu.equals("处室安全岗")){
+	else if(zhiwu.contains("处室安全岗")){
 		zhiwu1="52";
 	}
-	if(zhiwu.equals("普通员工")){
+	else{
 		zhiwu1="53";
 	}	
 	return zhiwu1;
