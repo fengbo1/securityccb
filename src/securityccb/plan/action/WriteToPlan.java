@@ -118,6 +118,14 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 					}
 					case 2 : { 
 						week=cellValue;	
+						if(week.contains("常规"))
+						{
+							week = "6";
+						}
+						if(week.contains("待定"))
+						{
+							week = "7";
+						}
 						System.out.println("周："+week)	;					
 						break;
 					}

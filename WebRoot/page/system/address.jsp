@@ -171,7 +171,7 @@ $("tr.btbj:even").css({"background-color":"#bfd3fc","font-family": "黑体","fon
 								<td width="40px" height="25" align="center" valign="middle" nowrap>
 								<div align="center">
 								<c:if  test="${ad.newnumber==newnumber||quanxian==1}" >
-								<a class="ui" href="<%=path%>/addchange.action?newnumber=${ad.newnumber}&position=<%=position %>">修改</a>
+								<a class="ui" href="<%=path%>/addchange.action?id=${ad.id}&position=<%=position%>">修改</a>
 								</c:if>		
 											</div>
 											</td>

@@ -40,15 +40,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								style="color: #1778C2; padding-top: 15px; padding-bottom: 15px; border: 0px; font-size: 26px; font-family: '黑体';"
 								colspan="11" align="center" bordercolor="#FFFFFF"><b>员工应急联络修改</b>						
 							</td>	
-							<td><input type="hidden" value="${id}"  name="id">
+							<td><input type="hidden" value="${id}"  name="id">${id}
 							<input type="hidden" value="${position}"  name="position">
-							<input type="hidden" value="${newnumber}"  name="newnumber">
 							</td>					
 </tr>
 	<tr  class="aa">
 	<td height="30" bgcolor="#188BE8" width="220px">员工姓名：</td>
 	
-		<td height="30" bgcolor="#188BE8" width="250px">${ulist[0].name}</td>
+		<td height="30" bgcolor="#188BE8" width="250px">${ui.name}</td>
 			
 	</tr>
 	
@@ -56,13 +55,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<tr  class="aa">
 	<td height="80" bgcolor="#188BE8" >居住地址：</td>
 	<td bgcolor="#F0F0F0">
-		<textarea name="address" id="address"  style="height: 80px;width:250px;overflow:hidden">${ulist[0].address}</textarea>
+		<textarea name="address" id="address"  style="height: 80px;width:250px;overflow:hidden">${ui.address}</textarea>
 	</td>		
 	</tr>
 	<tr  class="aa">
 	<td height="30" bgcolor="#188BE8" >本人联系电话：</td>
 	<td bgcolor="#F0F0F0">
-		<input name="tel" type="text" id="tel"  value="${ulist[0].tel}">
+		<input name="tel" type="text" id="tel"  value="${ui.tel}">
 	</td>		
 	</tr>
 	
@@ -72,21 +71,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<tr  class="aa">
 	<td height="30" bgcolor="#188BE8">紧急联系人姓名：</td>
 	<td bgcolor="#F0F0F0"  >	
-		<input name="namesos" type="text" id="namesos"  value="${ulist[0].namesos}">
+		<input name="namesos" type="text" id="namesos"  value="${ui.namesos}">
     </td>		
 	</tr>	
 	<tr  class="aa">
 	<td height="30" bgcolor="#188BE8">紧急联系人联系方式：</td>
 	<td bgcolor="#F0F0F0">
-		<input name="telsos" type="text" id="telsos"  value="${ulist[0].telsos}">
+		<input name="telsos" type="text" id="telsos"  value="${ui.telsos}">
 
 	</td>		
-	</tr>	
 	</tr>	
 	<tr  class="aa">
 	<td height="30" bgcolor="#188BE8">紧急联系人关系：</td>
 	<td bgcolor="#F0F0F0">
-		<input name="relation" type="text" id="relation"  value="${ulist[0].relation}">
+		<input name="relation" type="text" id="relation"  value="${ui.relation}">
 
 	</td>		
 	</tr>	

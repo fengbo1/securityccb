@@ -291,7 +291,7 @@ function frame(o)
 							</p>
 							<p style="padding:3px 0px 0px 5px;margin:0px"><%=new SimpleDateFormat("yyyy年MM月dd日")	.format(new java.util.Date())%></p>
 							<p id="txt" style="padding:3px 0px 0px 0px;margin:0px 0px 0px 0px"></p>
-							<p style="font-size:14px;">支持电话：028-86027534</p>
+							<p style="font-size:14px;">支持电话：13408000301</p>
 
 						</div>
 					</div>

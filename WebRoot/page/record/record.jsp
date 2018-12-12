@@ -46,7 +46,7 @@ body {
 function download(f)
 {
 	var Path = f;
-	 window.open("<%=path%>/upload/upload_record/"+f,"","height=70,width=300,top=400,left=600"); 
+	 window.open("<%=path%>/upload/upload_record/"+f,"","height=450,width=600,top=350,left=500"); 
 }
 function del(a,url)
 {

@@ -72,6 +72,7 @@ public class AddressAction {
 			
 			AddressList aa=new AddressList();
 			
+			aa.setId(alladdress.get(i).getId());
 			aa.setChushi(chushi);
 			aa.setName(alladdress.get(i).getName());
 			aa.setNamesos(alladdress.get(i).getNamesos());

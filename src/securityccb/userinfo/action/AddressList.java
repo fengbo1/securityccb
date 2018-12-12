@@ -8,6 +8,7 @@ import org.apache.commons.logging.LogFactory;
 
 public class AddressList {
 	private static final Log log = LogFactory.getLog(AddressList.class);
+	private int id;
 	private String newnumber;
 	private String address;
 	private String tel;
@@ -20,6 +21,16 @@ public class AddressList {
 
 
 
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 
 	public String getNewnumber() {
