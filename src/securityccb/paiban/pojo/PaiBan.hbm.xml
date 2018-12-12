@@ -20,7 +20,7 @@
             <column name="enddate" length="0" />
         </property>
         <property name="newnumber1" type="java.lang.String">
-            <column name="newnumber1" length="8" />
+            <column name="newnumber1" length="32" />
         </property>
         <property name="tel1" type="java.lang.String">
             <column name="tel1" length="32" />
@@ -29,7 +29,7 @@
             <column name="remark1" />
         </property>
         <property name="newnumber2" type="java.lang.String">
-            <column name="newnumber2" length="8" />
+            <column name="newnumber2" length="32" />
         </property>
         <property name="tel2" type="java.lang.String">
             <column name="tel2" length="32" />

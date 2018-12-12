@@ -77,6 +77,7 @@ page.href=href+number;
 			<c:if test="${fb:canpaiban(newnumber)}">
 			<tr> 
 				<td>
+				<!-- <a	 class="button small blue"  href="<%=path%>/paibantoadd.action?areaid=${areaid}&areaname=${areaname }&area=${area }&chushi=${chushi}">新增</a> -->
 				<a	 class="button small blue"  href="<%=path%>/page/zhiban/paiban/paiban_add.jsp?areaid=${areaid}&areaname=${areaname }&area=${area }&chushi=${chushi}">新增</a>
 				  	</td>
 	        	<td ><a	 class="button small blue"  href="<%=path%>/paibanaction.action?currentPage=1&position=${position}>">返回</a></td>

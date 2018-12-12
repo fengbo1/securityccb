@@ -16,7 +16,9 @@
 		</action>
 		<action name="paibanadd" class="securityccb.paiban.action.PaiBanAdd">
 			<result name="success">/page/zhiban/paiban/paibanarea.jsp</result>
-			
+		</action>
+		<action name="paibantoadd" class="securityccb.paiban.action.PaiBanToAdd">
+			<result name="success">/page/zhiban/paiban/paiban_add.jsp</result>
 		</action>
 		<action name="paibancheckname" class="securityccb.paiban.action.PaiBanCheckName">
 			<result name="success">/page/zhiban/paiban/paibanchecknameajax.jsp</result>
