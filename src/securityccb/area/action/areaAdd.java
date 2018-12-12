@@ -16,6 +16,7 @@ import securityccb.area.pojo.Area;
 import securityccb.chu.dao.ChuDAO;
 import securityccb.chu.pojo.Chu;
 import securityccb.upfile.Upfile;
+import securityccb.util.FileReadAndWrite;
 
 import ccb.hibernate.HibernateSessionFactory;
 
@@ -81,45 +82,32 @@ public class areaAdd {
 
 	public String execute() throws Exception
 	{
+		FileReadAndWrite fraw = new FileReadAndWrite();
 		AreaDAO ad=new AreaDAO();
-		String newareaid=ad.findmaxareaid();
-		if(newareaid.equals("")){
-			newareaid="00000001";
-		}
-		String myfile=null;
-		String myfilename=null;
-		String dir=null;
-		String fileTyle=null;
-		String newname=null;
-		url="";
-		if(file!=null&&fileFileName!=null){
-			myfilename=fileFileName.get(0);
-			myfile=file.get(0);
-			fileTyle=myfilename.substring(myfilename.lastIndexOf("."),myfilename.length()); 
-			newname=chushiid+"_"+newareaid+fileTyle;
-			dir="upload_area";
-		    Upfile uf=new Upfile();
-		    uf.uploadFile(myfile, dir, newname);
-		    url=newname;
-		
-		}
+		String myfile="";
+		String myfilename="";
+		String dir="upload_area";
+		String fileTyle="";
 		Session session = HibernateSessionFactory.getSession();
 		Transaction trans = session.beginTransaction();		
 		try {		
-			
+			String newareaid=ad.findmaxareaid();
+			newareaid = fraw.readandwrite("AREA", newareaid);
+			if(file!=null&&fileFileName!=null){
+				myfilename=fileFileName.get(0);
+				myfile=file.get(0);
+				fileTyle=myfilename.substring(myfilename.lastIndexOf("."),myfilename.length()); 
+				url=chushiid+"_"+newareaid+fileTyle;
+			    Upfile uf=new Upfile();
+			    uf.uploadFile(myfile, dir, url);
+			}
 			Area na=new Area();
 			na.setArea(area);
 			na.setAreaid(newareaid);
 			na.setAreaname(areaname);
 			na.setChushiid(chushiid);
 			na.setUrl(url);		
-			
-			ad.save(na);
-			
-		
-		
-			
-			
+			ad.merge(na);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

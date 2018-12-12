@@ -187,34 +187,19 @@ public class AreaDAO extends BaseHibernateDAO {
 	public String findmaxareaid() //获取area最大id
     {
 		Query query;			
-			
 		String newareaid="";
-		List<Area>  list;
-		
-		try {
-
-	        String hql="from Area order by areaid desc";		
-	        
-			System.out.println(hql);
-						
-			query=getSession().createQuery(hql);
-			
-	     	list = query.list();	
-	     	
-	     	String areaid=list.get(0).getAreaid();	
-							
-	     	newareaid=addOne(areaid);
-				
-					
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}finally{			
-		}
-		
+		String hql="from Area order by areaid desc";		
+		query=getSession().createQuery(hql);
+		List<Area>  list = query.list();	
+     	if(list.isEmpty())
+     	{
+     		newareaid = "000001";
+     	}
+     	else
+     	{
+     		newareaid=list.get(0).getAreaid();	
+     	} 
 		return newareaid;
-		
 	}
 	public static String addOne(String testStr){
 	    String[] strs = testStr.split("[^0-9]");//根据不是数字的字符拆分字符串

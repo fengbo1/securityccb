@@ -12,13 +12,6 @@
 	String quanxian = (String)request.getSession().getAttribute("quanxian");	
 	String IP=request.getRemoteAddr();
 	session.setAttribute("IP",IP);   
-
- 	
-		Date date = new Date();
-		SimpleDateFormat bartDateFormat = new SimpleDateFormat("YYYY");
-		String yyyy = bartDateFormat.format(date)+"、A";
-		String yyyear = bartDateFormat.format(date);
- 
 %>
 
 

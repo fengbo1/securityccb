@@ -278,25 +278,20 @@ public class ChuDAO extends BaseHibernateDAO  {
 	public String findmaxchushiid() //获取处室的最大的id再加一
     {
 		Query query;			
-	
 		String newchushiid="";
-		List<Chu>  list;
-		
 		try {
-
 	        String hql="from Chu order by chushiid desc";		
-	        
 			System.out.println(hql);
-						
 			query=getSession().createQuery(hql);
-			
-	     	list = query.list();	
-	     	
-	     	String chushiid=list.get(0).getChushiid();	
-							
-			newchushiid=(Integer.parseInt(chushiid.substring(0,3))+1)+"000";
-				
-					
+			List<Chu>  list = query.list();	
+	     	if(list.isEmpty())
+	     	{
+	     		newchushiid = "101";
+	     	}
+	     	else
+	     	{
+	     		newchushiid = list.get(0).getChushiid().substring(0,3);
+	     	}
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -304,9 +299,7 @@ public class ChuDAO extends BaseHibernateDAO  {
 		}finally{
 			
 		}
-		
 		return newchushiid;
-		
 	}
 
 

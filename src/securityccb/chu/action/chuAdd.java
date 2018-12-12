@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import securityccb.jigou.pojo.JiGou;
+import securityccb.util.FileReadAndWrite;
 import securityccb.chu.dao.ChuDAO;
 import securityccb.chu.pojo.Chu;
 
@@ -66,10 +67,11 @@ public class chuAdd {
 
 	public String execute() throws Exception
 	{
+		FileReadAndWrite fraw = new FileReadAndWrite();
 		message = "添加成功";
 		ChuDAO cd =new ChuDAO();
 		String newchushiid=cd.findmaxchushiid(); 
- 		int newid=cd.findmaxid();		
+		newchushiid = fraw.readandwrite("CHU", newchushiid)+"000";
 		Session session = HibernateSessionFactory.getSession();
 		Transaction trans = session.beginTransaction(); 		
 		if (anbaobiaozhi!=null)
@@ -88,8 +90,7 @@ public class chuAdd {
 				newchu.setChushi(chushi);
 				newchu.setChushiid(newchushiid);
 				newchu.setJigouid(jigouid);
-				newchu.setId(newid);			
-				cd.save(newchu);		
+				cd.merge(newchu);		
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -31,7 +31,7 @@ public class FileReadAndWrite {
 	}
 	public String fileread(String type)
 	{
-		String path = "C:\\securityccb\\paixu\\"+type;
+		String path = "C:\\securityccb\\"+type;
 		File f=new File(path);
 		String temp = "";
 		if(!f.exists()){
@@ -57,7 +57,7 @@ public class FileReadAndWrite {
 	}
 	public String filewrite(String input,String type)
 	{
-		String path = "C:\\securityccb\\paixu\\"+type;
+		String path = "C:\\securityccb\\"+type;
 		try {
 			FileWriter fileWriter;
 			fileWriter = new FileWriter(path,false);
