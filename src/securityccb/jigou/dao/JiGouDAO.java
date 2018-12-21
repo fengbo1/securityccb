@@ -242,31 +242,44 @@ public class JiGouDAO extends BaseHibernateDAO  {
 			throw re;
 		}
 	}
-	public String findjigouid(String chushiid) //通过处室ID查询机构ID
-    {
-		Query query1;			
-			
-		String jigouid="";
+    public String findJigouidByChuid(String chushiid) {////通过处室ID查询机构ID
+		log.debug("finding all JiGou instances");
 		try {
-	        String sql="SELECT * from chu where chushiid = "+"'"+chushiid+"'";			
-			System.out.println(sql);
-			query1 = getSession().createSQLQuery(sql).addEntity(Chu.class);		
-			List<Chu> list2 = query1.list();	
-			
-			if(list2 != null && list2.size() >= 1)
-			{
-				jigouid=list2.get(0).getJigouid();				
-			}			
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}finally{
-			
+			String queryString = "from Chu where chushiid = '"+chushiid+"'";		
+	         Query queryObject = getSession().createQuery(queryString);
+			 List<Chu> list = queryObject.list();
+			 if(list.isEmpty())
+			 {
+				 return null;
+			 }
+			 else
+			 {
+				return list.get(0).getJigouid(); 
+			 }
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
 		}
-		return  jigouid;
-
-}
+	}
+    public String findJigouNameByJigouid(String jigouid) {////通过处室ID查询机构
+		log.debug("finding all JiGou instances");
+		try {
+			String queryString = "from JiGou where jigouid = '"+jigouid+"'";		
+	         Query queryObject = getSession().createQuery(queryString);
+			 List<JiGou> list = queryObject.list();
+			 if(list.isEmpty())
+			 {
+				 return null;
+			 }
+			 else
+			 {
+				return list.get(0).getJigou(); 
+			 }
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
 	public String  findjigoubyjigouid(String jigouid)//通过机构ID查询机构全称
 	{
 		Query query;

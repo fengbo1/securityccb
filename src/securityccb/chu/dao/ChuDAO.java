@@ -176,6 +176,25 @@ public class ChuDAO extends BaseHibernateDAO  {
             throw re;
         }
     }
+    public String findChuidByJigouAndChushi(String jigouid,String chushi) {
+		log.debug("finding all Chu instances");
+		try {
+			String queryString = "from Chu where jigouid = '"+jigouid+"' and chushi='"+chushi+"'";
+	         Query queryObject = getSession().createQuery(queryString);
+			 List<Chu> list = queryObject.list();
+			 if(list.isEmpty())
+			 {
+				 return null;
+			 }
+			 else
+			 {
+				return list.get(0).getChushiid(); 
+			 }
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
     public Chu findByJigouAndChushi(String jgid,String chushi) {
 		log.debug("finding all Chu instances");
 		try {

@@ -89,7 +89,7 @@ public class UserAdd {
 			quanxian=zhiwu.substring(1,2);
 			String role=zhiwu.substring(0,1);
 			areaid="";
-			String position=jgd.findjigouid(chushiid)+chushiid+areaid+role+quanxian;
+			String position=jgd.findJigouidByChuid(chushiid)+chushiid+areaid+role+quanxian;
 			
 			
 			UserInfo ui=new UserInfo();
@@ -99,7 +99,6 @@ public class UserAdd {
 			ui.setNewnumber(newnumber);
 			ui.setPosition(position);
 			ui.setPassword("000000");			
-			ui.setId(uid.findmaxuserinfoid());
 			ui.setQuanxian(quanxian);
 			ui.setRole(role);
 			uid.save(ui);

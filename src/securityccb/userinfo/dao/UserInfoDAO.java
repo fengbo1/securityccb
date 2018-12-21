@@ -268,6 +268,45 @@ public class UserInfoDAO extends BaseHibernateDAO  {
 			throw re;
 		}
 	}
+    public String findJigouidByNewnumber(String newnumber) {
+		log.debug("finding all UserInfo instances");
+		try {
+			String queryString = "from UserInfo where newnumber='"+newnumber+"'";
+			Query queryObject = getSession().createQuery(queryString);
+			List<UserInfo> list =  queryObject.list();
+			if(list.isEmpty())
+			{
+				return "";
+			}
+			else
+			{
+				return list.get(0).getPosition().substring(0, 3);
+			}
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+    public int checknewnumberNotInJigou(String newnumber,String jigouid) // 检查新一代员工编号唯一性
+    {
+    	try {			
+    		String sql="from UserInfo where newnumber = '"+newnumber+"' and mid(position,1,3)<>'"+jigouid+"'";	
+    		System.out.println(sql);
+    		Query query  =  getSession().createQuery(sql);	
+    		List <UserInfo> list = query.list();
+    		if(list.isEmpty())
+			{
+				return 0;
+			}
+			else
+			{
+				return list.size();
+			}
+    	} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+    }
 	//寻找安保部综合处长newnumber
 	public UserInfo findZhChuz(){
 		log.debug("finding all UserInfo instances");
@@ -359,25 +398,6 @@ public class UserInfoDAO extends BaseHibernateDAO  {
 		}
 		
 	}
-	//保存到USERinfo表中。
-	public String mysave(UserInfo ui)
-	{
-
-		try {
-			String queryString = "insert into userinfo(position,name,newnumber,password,role,quanxian,remark1,address,tel,namesos,telsos,relation) values('"
-				+ui.getPosition()+"','"+ui.getName()+"','"+ui.getNewnumber()+"','"+ui.getPassword()+"'," +
-						"'"+ui.getRole()+"','"+ui.getQuanxian()+"','"+ui.getRemark1()+"','"+ui.getAddress()+"'," +
-								"'"+ui.getTel()+"','"+ui.getNamesos()+"','"+ui.getTelsos()+"','"+ui.getRelation()+"')";
-			System.out.print("userinfo insert："+queryString);
-			Query queryObject = getSession().createSQLQuery(queryString);
-			queryObject.executeUpdate();	
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();		
-		}
-		return "success";
-	}
 	public List findadressbychushiid(String chushiid) //根据处室ID查询本处室所有人员的address
 	{
 		Query query;
@@ -445,67 +465,6 @@ public class UserInfoDAO extends BaseHibernateDAO  {
 		return ulist;	
 	
 }
-	public int findmaxuserinfoid() //获取userinfo中最大的id
-    {
-		Query query;		
-		List<UserInfo>  list;
-		int newuserinfoid=0;
-		try {
-
-	        String hql="from UserInfo order by id desc";	     
-						
-			query=getSession().createQuery(hql);
-			
-	     	list = query.list();	
-	     	
-	     	int userinfoid=list.get(0).getId();
-	     	
-	     	chuAdd ca =new chuAdd();
-							
-			 newuserinfoid=userinfoid+1;
-					
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}finally{
-
-		}
-		
-		return newuserinfoid;
-		
-	}
-	
-	public int findmaxuserinfoid(int i) //获取id
-    {
-		Query query;			
-			
-		List<UserInfo>  list;
-		int newuserinfoid=0;
-		try {
-
-	        String hql="from UserInfo order by id desc";			        
-									
-			query=getSession().createQuery(hql);
-			
-	     	list = query.list();	
-	     	
-	     	int userinfoid=list.get(0).getId();    	
-	     	
-							
-			 newuserinfoid=userinfoid+1+i;
-					
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}finally{
-
-		}
-		
-		return newuserinfoid;
-		
-	}
 
 	
 }

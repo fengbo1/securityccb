@@ -117,14 +117,7 @@ public class areaAdd {
 			session.clear();
 			session.close();
 		}
-		
-		
-		
 		return "success";
-
-	
-	
 	}
-
 }
 

@@ -163,6 +163,26 @@ public class AreaDAO extends BaseHibernateDAO {
 			throw re;
 		}
 	}
+	public String findAreaidByAreanameAndJigouid(String areaname,String jigouid) {
+		log.debug("finding all Area instances");
+		try {
+			String sql = "SELECT * from area where areaname='"+areaname+"' and chushiid in (SELECT chushiid from chu where jigouid='"+jigouid+"')";
+			Query queryObject = getSession().createSQLQuery(sql).addEntity(Area.class);
+			List<Area> list = queryObject.list();
+			if(list.isEmpty())
+			{
+				return "";
+			}
+			else
+			{
+				return list.get(0).getAreaid();
+			}
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	
 	public List<Area> findareaidbychushiid(String chushiid) //查询处室ID下全部责任区
     {
 		Query query ;		
@@ -201,43 +221,23 @@ public class AreaDAO extends BaseHibernateDAO {
      	} 
 		return newareaid;
 	}
-	public static String addOne(String testStr){
-	    String[] strs = testStr.split("[^0-9]");//根据不是数字的字符拆分字符串
-	    String numStr = strs[strs.length-1];//取出最后一组数字
-	    if(numStr != null && numStr.length()>0){//如果最后一组没有数字(也就是不以数字结尾)，抛NumberFormatException异常
-	        int n = numStr.length();//取出字符串的长度
-	        int num = Integer.parseInt(numStr)+1;//将该数字加一
-	        String added = String.valueOf(num);
-	        n = Math.min(n, added.length());
-	        //拼接字符串
-	        return testStr.subSequence(0, testStr.length()-n)+added;
-	    }else{
-	        throw new NumberFormatException();
-	    }
-	}
 	public String FindAreaUrl(String areaid) 
 	{
 		Query query;
 		String url="";	
-
 		try {			
-		
 			String sql="select * from area where areaid = "+"'"+areaid+"'";	
 			System.out.println(sql);
 			query =getSession().createSQLQuery(sql).addEntity(Area.class);	;
-			List <Area>arealist = query.list();	
+			List<Area> arealist = query.list();	
             url=arealist.get(0).getUrl();
             if(!url.equals("")){
     			url=url.substring(url.indexOf("upload_area")+12, url.indexOf("\" width"));
-
             }
-			
-						
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}	
-		
 		return url;	
 	}
 }

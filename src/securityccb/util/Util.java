@@ -192,77 +192,6 @@ public class Util {
 			else if(list.size()==1&&!list.get(0).getNewnumber().equals(newnumber)){
 				jieguo1="4"; //有一个值班，不是本人，能进入值班页面
 			}
-			
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}finally{
-			trans.commit();
-			session.flush();
-			session.clear();
-			session.close();
-		}		
-		
-		
-		return jieguo1;		
-
-	}
-	
-	public static String encodeUrlToGB2312(String url)  
-    throws UnsupportedEncodingException {  
-    StringBuffer sb = new StringBuffer();  
-    for (int i = 0; i < url.length(); i++) {  
-       String s = url.substring(i, i + 1);  
-       byte[] bytes = s.getBytes("gb2312");  
-       if (bytes.length == 1) { // 如果为一个字节则直接加入StringBuffer（中文至少为两个字节，一个字节不可能为中文）  
-        if (bytes[0] == ' ')  
-            sb.append("%20");  
-        else  
-            sb.append(s);  
-       } else {  
-        for (int j = 0; j < bytes.length; j++) {  
-            sb.append("%" + Integer.toHexString(bytes[j]));  
-        }  
-    }  
-    }  
-    return sb.toString();  
-    }
-	//根据newnumber查找姓名
-       public static String newnumbertoname(String newnumber,String areaid) {
-		
-		
-		
-		Date now = new Date(); 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//可以方便地修改日期格式
-		String today=dateFormat.format(now);
-		String jieguo1=null;
-
-		Query query;			
-		Session session = HibernateSessionFactory.getSession();
-		Transaction trans = session.beginTransaction();		
-		List<ZhiBan> list = null;
-		
-		try {
-	        String sql="SELECT * from zhiban where date = "+"'"+today+"' and areaid='"+areaid+"'" ;			
-			System.out.println(sql);
-			query = session.createSQLQuery(sql).addEntity(ZhiBan.class);		
-			list = query.list();	
-	
-		if(list.size()==0){
-			jieguo1="0"; //可以进入值班页面
-		}
-		if(null!=list&&list.size()==2){
-			jieguo1="2";  //已经有两个人在此区域值班了，不能进入值班页面
-		}
-		if(list.size()==1&&list.get(0).getNewnumber()==newnumber){
-			jieguo1="3";  //有一个值班，而且还是本人，不能进入值班页面
-		}
-		if(list.size()==1&&list.get(0).getNewnumber()!=newnumber){
-			jieguo1="4"; //有一个值班，不是本人，能进入值班页面
-		}
-			
-			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -308,12 +237,42 @@ public class Util {
     	   {
     		   roledesc = "处室安全岗";
     	   }
-    	   else
+    	   else//53
     	   {
     		   roledesc = "普通员工";
     	   }
     	   return roledesc;
        }
+       public static String zhiwuTorolequanxian(String zhiwu)  {
+    		String zhiwu1="";
+    		zhiwu = zhiwu.trim();
+    		
+    		if(zhiwu.contains("机构其他负责人")&&zhiwu.contains("分管安保")){
+    			zhiwu1="24";
+    		}
+    		else if(zhiwu.contains("机构主要负责人")&&zhiwu.contains("分管安保")){
+    			zhiwu1="14";
+    		}
+    		else if(zhiwu.contains("机构主要负责人")){
+    			zhiwu1="13";
+    		}
+    		else if(zhiwu.contains("机构其他负责人")){
+    			zhiwu1="23";
+    		}
+    		else if(zhiwu.contains("综合部门负责人")){
+    			zhiwu1="33";
+    		}
+    		else if(zhiwu.contains("机构安全岗")){
+    			zhiwu1="51";
+    		}
+    		else if(zhiwu.contains("处室安全岗")){
+    			zhiwu1="52";
+    		}
+    		else{
+    			zhiwu1="53";
+    		}	
+    		return zhiwu1;
+    	}
        
      //根据newnumber查找对应系统角色名称
        public static String numberToRoledesc(String newnumber) {
@@ -374,7 +333,7 @@ public class Util {
         * @param treatAsStr 0:数字，字符；1：日期；2时间
         * @return
         */
-       public static String getCellValue(Cell cell, int type) {
+       public String getCellValue(Cell cell, int type) {
            if (cell == null) {
                return "";
            }

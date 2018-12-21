@@ -23,7 +23,7 @@ String jigouid= (String) request.getParameter("jigouid");
         <table>
         <tr>
     
-    <td>请选择员工信息上传(03格式):<s:file name="file"></s:file></td>  
+    <td>请选择员工信息上传:<s:file name="file"></s:file></td>  
     </tr>  
     
     <tr>  
@@ -31,7 +31,7 @@ String jigouid= (String) request.getParameter("jigouid");
     </tr>  
     </table>
     </form>  
-   上传人员信息后，将覆盖本机构原人员信息！<input type="button" value="返 回"onclick="javascript:history.go(-1);"/><br></br>
+   <input type="button" value="返 回"onclick="javascript:history.go(-1);"/><br></br>
    
   
     </body>  

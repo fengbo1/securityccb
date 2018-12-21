@@ -74,13 +74,6 @@
 		<function-class>securityccb.util.Util</function-class>
 		<function-signature>java.lang.String zhibanarea(java.lang.String,java.lang.String)</function-signature>
     </function>
-
-    <function>
-     <description>encodeUrlToGB2312</description>
-        <name>encodeurltoGB2312</name>
-		<function-class>securityccb.util.Util</function-class>
-		<function-signature>java.lang.String encodeUrlToGB2312(java.lang.String)</function-signature>
-    </function>
    <function>
      <description>CanPingfen</description>
         <name>canpingfen</name>
