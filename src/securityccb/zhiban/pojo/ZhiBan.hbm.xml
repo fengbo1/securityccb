@@ -11,7 +11,7 @@
             <generator class="native"></generator>
         </id>
         <property name="newnumber" type="java.lang.String">
-            <column name="newnumber" length="8" />
+            <column name="newnumber" length="32" />
         </property>
         <property name="areaid" type="java.lang.String">
             <column name="areaid" length="8" />
@@ -26,7 +26,7 @@
             <column name="cover" length="1" />
         </property>
         <property name="covernewnumber" type="java.lang.String">
-            <column name="covernewnumber" length="8" />
+            <column name="covernewnumber" length="32" />
         </property>
         <property name="remark" type="java.lang.String">
             <column name="remark" />

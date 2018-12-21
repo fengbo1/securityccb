@@ -64,16 +64,16 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
             String telsos="";
             String relation="";
             Row row = sheet.getRow(i);
-			name = util.getCellValue(row.getCell(0), 0);
-			chushi = util.getCellValue(row.getCell(1), 0);
-			newnumber = util.getCellValue(row.getCell(2), 0);
-			password = util.getCellValue(row.getCell(3), 0);
-			zhiwu = util.getCellValue(row.getCell(4), 0);
-			address = util.getCellValue(row.getCell(5), 0);
-			tel = util.getCellValue(row.getCell(6), 0);
-			namesos = util.getCellValue(row.getCell(7), 0);
-			telsos = util.getCellValue(row.getCell(8), 0);
-			relation = util.getCellValue(row.getCell(9), 0);
+			name = util.getCellValue(row.getCell(0), 0).trim();
+			chushi = util.getCellValue(row.getCell(1), 0).trim();
+			newnumber = util.getCellValue(row.getCell(2), 0).trim();
+			password = util.getCellValue(row.getCell(3), 0).trim();
+			zhiwu = util.getCellValue(row.getCell(4), 0).trim();
+			address = util.getCellValue(row.getCell(5), 0).trim();
+			tel = util.getCellValue(row.getCell(6), 0).trim();
+			namesos = util.getCellValue(row.getCell(7), 0).trim();
+			telsos = util.getCellValue(row.getCell(8), 0).trim();
+			relation = util.getCellValue(row.getCell(9), 0).trim();
 			UserInfoUp uiup=new UserInfoUp();
 			if(name!=null&&name.length()>1)
 			{
@@ -106,10 +106,10 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 			String chushiid=chudao.findChuidByJigouAndChushi(jigouid, uiu.getChushi());
 			String zhiwu=Util.zhiwuTorolequanxian(uiu.getZhiwu());
 			if(chushiid==null){
-				message="第"+j+"行处室名称不存在，上传失败";
+				message="处室名称【"+uiu.getChushi()+"】不存在，上传失败";
 				return message;
 			}if(zhiwu.equals("")){
-				zhiwu="第"+j+"行职务不存在，上传失败";
+				zhiwu="职务【"+uiu.getZhiwu()+"】不存在，上传失败";
 				return message;
 			}
 			ui.setPosition(jigouid+chushiid+zhiwu);
