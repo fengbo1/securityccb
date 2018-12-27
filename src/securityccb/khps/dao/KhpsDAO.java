@@ -380,4 +380,26 @@ public class KhpsDAO extends BaseHibernateDAO  {
 				throw re;
 			}
 		}  
+	    public Khps findByJgidAndYearNullNew(String jigouid,String year) {
+			log.debug("finding all Khps instances");
+			try {
+				String queryString = "from Khps where jigouid='"+jigouid+"' and remark3='"+year+"'";
+		         Query queryObject = getSession().createQuery(queryString);
+				 List<Khps> list = queryObject.list();
+				 if(list.isEmpty())
+				 {
+					 Khps kp = new Khps();
+					 kp.setJigouid(jigouid);
+					 kp.setRemark3(year);
+					 return kp;
+				 }
+				 else
+				 {
+					 return (Khps) list.get(0);
+				 }
+			} catch (RuntimeException re) {
+				log.error("find all failed", re);
+				throw re;
+			}
+		} 
 }

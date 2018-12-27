@@ -191,7 +191,7 @@ public class UserInfoAction {
 				String pos = ui.getPosition();
 				String zw = pos.substring(9, 11);
 				uib.setPosition(pos);
-				uib.setZw_jigou(jgdao.findjigoubyjigouid(pos.substring(0, 3)));
+				uib.setZw_jigou(jgdao.findJigouNameByJigouid(pos.substring(0, 3)));
 				uib.setZw_chu(cd.findchushinamebychushiid(pos.substring(3, 9)));
 				uib.setZw_role(Util.rolequanxianToString(zw));
 				uib.setName(ui.getName());

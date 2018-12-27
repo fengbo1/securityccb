@@ -12,9 +12,9 @@ public abstract class AbstractJiGou  implements java.io.Serializable {
 
     // Fields    
 
-     private String jigouid;
      private Integer id;
      private String jigou;
+     private String jigouid;
      private String quanxian;
      private String remark1;
      private String remark2;
@@ -29,15 +29,11 @@ public abstract class AbstractJiGou  implements java.io.Serializable {
     public AbstractJiGou() {
     }
 
-	/** minimal constructor */
-    public AbstractJiGou(Integer id) {
-        this.id = id;
-    }
     
     /** full constructor */
-    public AbstractJiGou(Integer id, String jigou, String quanxian, String remark1, String remark2, String remark3, String remark4, String remark5) {
-        this.id = id;
+    public AbstractJiGou(String jigou, String jigouid, String quanxian, String remark1, String remark2, String remark3, String remark4, String remark5) {
         this.jigou = jigou;
+        this.jigouid = jigouid;
         this.quanxian = quanxian;
         this.remark1 = remark1;
         this.remark2 = remark2;
@@ -48,14 +44,6 @@ public abstract class AbstractJiGou  implements java.io.Serializable {
 
    
     // Property accessors
-
-    public String getJigouid() {
-        return this.jigouid;
-    }
-    
-    public void setJigouid(String jigouid) {
-        this.jigouid = jigouid;
-    }
 
     public Integer getId() {
         return this.id;
@@ -71,6 +59,14 @@ public abstract class AbstractJiGou  implements java.io.Serializable {
     
     public void setJigou(String jigou) {
         this.jigou = jigou;
+    }
+
+    public String getJigouid() {
+        return this.jigouid;
+    }
+    
+    public void setJigouid(String jigouid) {
+        this.jigouid = jigouid;
     }
 
     public String getQuanxian() {

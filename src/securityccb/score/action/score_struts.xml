@@ -28,5 +28,14 @@
 			<result name="success">/page/kaoping/kaohexiangmu/kaohexiangmu.jsp</result>
 			<result name="viewscore">/page/score/viewscore.jsp</result>
 		</action>
+		 <action name="showimport" class="securityccb.score.action.ShowImport">
+			<result name="success">/page/score/showimport.jsp</result>
+		</action>
+		 <action name="scoreimport" class="securityccb.score.action.ScoreImport">
+			<result name="success">/page/public/successnoreturn.jsp</result>
+		</action>
+		 <action name="scoreexport" class="securityccb.score.action.SoreExport">
+			<result name="success">/page/public/derivedetail.jsp</result>
+		</action>
 	</package>
 </struts>    

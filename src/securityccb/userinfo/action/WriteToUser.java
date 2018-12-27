@@ -44,6 +44,7 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 		UserInfoDAO ud =new UserInfoDAO();
 		JiGouDAO jgdao = new JiGouDAO();
 		ChuDAO chudao = new ChuDAO();
+		int jigou_anquan_gang = 0;
 		//FileInputStream fi = new FileInputStream(target);
 		//Workbook wb = new HSSFWorkbook(fi);
 		Workbook wb = uu.getWorkbook(directory+"/"+uploadFileFileName);
@@ -87,8 +88,17 @@ public String loadRoleInfo(String uploadFileFileName,String jigouid){
 				uiup.setSosname(namesos);
 				uiup.setSostel(telsos);
 				uiup.setRelation(relation);
-				alist.add(uiup);	
+				alist.add(uiup);
+				if(zhiwu.contains("机构安全岗"))
+				{
+					jigou_anquan_gang+=1;
+				}
 			}
+		}
+		if(jigou_anquan_gang==0)
+		{
+			message="请设置本机构的机构安全岗";
+			return message;	
 		}
 ////////////////////////////////////////////////////////////22222222222222/////////////////////////////////////////////////////////////
 		for(int i=0;i<alist.size();i++){

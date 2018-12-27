@@ -41,20 +41,6 @@ $("tr.btbj:even").css({"background-color":"#bfd3fc","font-family": "黑体","fon
 
 
 </script>
-<script language="javascript">
-function checkarea(areas){
-var tongji=<%%>;
-
-	if(areas==tongji||<%%>==8){
-		
-		return true;
-	}else{
-		alert("您不在此责任区，请重新选择");		
-		return  false;
-		} 
-}
-
-</script>
 <link href="<%=path%>/css/table_back.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -95,7 +81,7 @@ var tongji=<%%>;
 					<s:property value="chushiname"/></div>
 				</td>
 				<td height="30" align="center">
-					<div align="center"><a name="caname" onclick="javascript:return checkarea(<s:property value="chushi"/>);" href="<%=path%>/PaiBanArea.action?year=2&areaid=<s:property value="areaid"/>&chushi=<s:property value="chushiname"/>&chushiid=<s:property value="chushiid"/>&position=${ position }">
+					<div align="center"><a name="caname" href="<%=path%>/PaiBanArea.action?year=2&areaid=<s:property value="areaid"/>&chushi=<s:property value="chushiname"/>&chushiid=<s:property value="chushiid"/>&position=${ position }">
 					<s:property value="areaname"/><s:property value="chushi"/></a></div>
 				</td>
 				<td  height="30" align="left">

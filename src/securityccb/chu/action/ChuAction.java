@@ -99,7 +99,7 @@ public class ChuAction {
 				ChuAction chushi = new ChuAction();			
 				
 				chushi.setChushi(chu.getChushi());
-				chushi.setJigou(jgd.findjigoubyjigouid(chu.getJigouid()));
+				chushi.setJigou(jgd.findJigouNameByJigouid(chu.getJigouid()));
 				chushi.setChushiid(chu.getChushiid());
 				chushi.setPosition(position);
 				mylist.add(chushi);

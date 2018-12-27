@@ -1,5 +1,4 @@
 package securityccb.jigou.pojo;
-
 // default package
 
 
@@ -15,14 +14,10 @@ public class JiGou extends AbstractJiGou implements java.io.Serializable {
     public JiGou() {
     }
 
-	/** minimal constructor */
-    public JiGou(Integer id) {
-        super(id);        
-    }
     
     /** full constructor */
-    public JiGou(Integer id, String jigou, String quanxian, String remark1, String remark2, String remark3, String remark4, String remark5) {
-        super(id, jigou, quanxian, remark1, remark2, remark3, remark4, remark5);        
+    public JiGou(String jigou, String jigouid, String quanxian, String remark1, String remark2, String remark3, String remark4, String remark5) {
+        super(jigou, jigouid, quanxian, remark1, remark2, remark3, remark4, remark5);        
     }
    
 }

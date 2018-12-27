@@ -221,7 +221,7 @@ public class AreaAction {
 							areaaction.setUrl((area.get(j).getUrl()));
 
 							areaaction.setChushi(chushiid.get(i).getChushi());
-							areaaction.setJigou(jgd.findjigoubyjigouid(jigouid));
+							areaaction.setJigou(jgd.findJigouNameByJigouid(jigouid));
 							arealist.add(areaaction);
 							k++;
 						}

@@ -239,7 +239,10 @@ function frame(o)
 	{
 	   document.getElementById("frame").src="<%=path%>/showkpxm.action";
 		}
-
+		else if(obj=="j_import")//导入导出
+		{
+		   document.getElementById("frame").src="<%=path%>/showimport.action?&position=<%=position%>";
+		}
 		else if(obj=="j_khjd")
 		{
 		   document.getElementById("frame").src="<%=path%>/showkhjd.action?&newnumber=<%=newnumber%>&position=<%=position%>";
@@ -310,7 +313,10 @@ function frame(o)
 								</c:if>
 								<li onclick="frame('j_kpcx')">考核情况查询</li>
 								</c:if>
-								<li onclick="frame('j_kpxm')">考核目标及标准</li>																
+								<li onclick="frame('j_kpxm')">考核目标及标准</li>
+								<c:if test="${quanxian=='1'}">	
+								<li onclick="frame('j_import')">导出</li>
+								</c:if>															
 							</ul></li> <%} %>
 							<%if(quanxian.equals("2")||quanxian.equals("1")||role.equals("0")||role.equals("1")||role.equals("2")||role.equals("3")){ %>
 								<li class="a">

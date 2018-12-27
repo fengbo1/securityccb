@@ -104,7 +104,7 @@ public class areaUpdate {
 					id=(list.get(0).getId());	
 					chushi=(cd.findchushinamebychushiid(list.get(0).getChushiid()));
 					chulist=cd.findchushiidbyjigouid(position.substring(0, 3));
-			        jigou=jgd.findjigoubyjigouid(position.substring(0, 3));
+			        jigou=jgd.findJigouNameByJigouid(position.substring(0, 3));
 				    areaid=list.get(0).getAreaid();
 //				    if(!url.equals("")){
 //				    	url=url.substring(63, 82);

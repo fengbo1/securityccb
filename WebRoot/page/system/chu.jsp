@@ -92,7 +92,7 @@ window.onload=function()//用window的onload事件，窗体加载完毕的时候
     系统管理->处室管理
     
 					<table height="80" align="center" cellpadding="0"
-						cellspacing="2" border: 0px;">
+						cellspacing="2" border="0px">
 						<tr>
 							<td
 								style="color: #1778C2; padding-top: 15px; padding-bottom: 15px; border: 0px; font-size: 26px; font-family: '黑体';"

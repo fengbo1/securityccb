@@ -2,13 +2,9 @@ package securityccb.jigou.dao;
 // default package
 
 import ccb.dao.BaseHibernateDAO;
-import ccb.hibernate.HibernateSessionFactory;
-
 import java.util.List;
 import org.hibernate.LockMode;
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,8 +24,8 @@ import securityccb.jigou.pojo.JiGou;
 public class JiGouDAO extends BaseHibernateDAO  {
 	     private static final Logger log = LoggerFactory.getLogger(JiGouDAO.class);
 		//property constants
-	public static final String ID = "id";
 	public static final String JIGOU = "jigou";
+	public static final String JIGOUID = "jigouid";
 	public static final String QUANXIAN = "quanxian";
 	public static final String REMARK1 = "remark1";
 	public static final String REMARK2 = "remark2";
@@ -62,7 +58,7 @@ public class JiGouDAO extends BaseHibernateDAO  {
         }
     }
     
-    public JiGou findById( java.lang.String id) {
+    public JiGou findById( java.lang.Integer id) {
         log.debug("getting JiGou instance with id: " + id);
         try {
             JiGou instance = (JiGou) getSession()
@@ -105,15 +101,15 @@ public class JiGouDAO extends BaseHibernateDAO  {
       }
 	}
 
-	public List findById(Object id
-	) {
-		return findByProperty(ID, id
-		);
-	}
-	
 	public List findByJigou(Object jigou
 	) {
 		return findByProperty(JIGOU, jigou
+		);
+	}
+	
+	public List findByJigouid(Object jigouid
+	) {
+		return findByProperty(JIGOUID, jigouid
 		);
 	}
 	
@@ -280,21 +276,63 @@ public class JiGouDAO extends BaseHibernateDAO  {
 			throw re;
 		}
 	}
-	public String  findjigoubyjigouid(String jigouid)//通过机构ID查询机构全称
-	{
-		Query query;
-		List<JiGou> list=null;		
-		String jiugou=null;
+    public JiGou findJigouByJigouname(String jigouname) {
+		log.debug("finding all JiGou instances");
 		try {
-			    String sql="SELECT * from jigou where jigouid = "+"'"+jigouid+"'";			
-				System.out.println(sql);
-				query = getSession().createSQLQuery(sql).addEntity(JiGou.class);		
-				 list = query.list();	
-			   
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
+			String queryString = "from JiGou where jigou = '"+jigouname+"'";		
+	         Query queryObject = getSession().createQuery(queryString);
+			 List<JiGou> list = queryObject.list();
+			 if(list.isEmpty())
+			 {
+				 return null;
+			 }
+			 else
+			 {
+				return list.get(0); 
+			 }
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
 		}
-		return list.get(0).getJigou();
+	}
+    public JiGou findJigouByJigouid(String jigouid) {
+		log.debug("finding all JiGou instances");
+		try {
+			String queryString = "from JiGou where jigouid = '"+jigouid+"'";		
+	         Query queryObject = getSession().createQuery(queryString);
+			 List<JiGou> list = queryObject.list();
+			 if(list.isEmpty())
+			 {
+				 return null;
+			 }
+			 else
+			 {
+				return list.get(0); 
+			 }
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+    public JiGou findJigouByJigouidNullNew(String jigouid) {
+		log.debug("finding all JiGou instances");
+		try {
+			String queryString = "from JiGou where jigouid = '"+jigouid+"'";		
+	         Query queryObject = getSession().createQuery(queryString);
+			 List<JiGou> list = queryObject.list();
+			 if(list.isEmpty())
+			 {
+				 JiGou jg = new JiGou();
+				 jg.setJigouid(jigouid);
+				 return jg;
+			 }
+			 else
+			 {
+				return list.get(0); 
+			 }
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
 	}
 }

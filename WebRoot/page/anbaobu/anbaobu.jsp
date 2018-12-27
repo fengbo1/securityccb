@@ -104,7 +104,11 @@ function frame(o)
 	else if(obj=="pwdmodify")
 	{
 	document.getElementById("frame").src="<%=path%>/usertomodify.action?id="+id;
-	}	
+	}
+	else if(obj=="j_import")//导入导出
+		{
+		   document.getElementById("frame").src="<%=path%>/showimport.action?&position=<%=position%>";
+		}	
 	}
 
 </script>
@@ -154,12 +158,14 @@ function frame(o)
 								<li class="frame" onclick="frame('khcx')">考核情况查询</li>
 								<c:if test="${role=='3'}">
 								<li onclick="frame('j_khjd')">考核进度</li>
+								<li onclick="frame('j_import')">导入</li>	
 								</c:if>
 							</ul></li>								
 					<li class="a">
 							<div class="header" onclick="frame('fxcjc')">
 								<span class="label">非现场检查</span>
 							</div>
+					</li>		
 					</ul>
 				</div>
 			</div>

@@ -241,4 +241,27 @@ public class OperateDAO extends BaseHibernateDAO  {
 			throw re;
 		}
 	}
+	public Operate findByJgPnOtOd(String pnumber,String otime,String odate) {
+		log.debug("finding all Operate instances");
+		try {
+			String queryString = "from Operate where pnumber='"+pnumber+"' and otime='"+otime+"' and odate='"+odate+"'";
+	         Query queryObject = getSession().createQuery(queryString);
+			 List<Operate> list = queryObject.list();
+			 if(list.isEmpty())
+			 {
+				 Operate op = new Operate();
+				 op.setPnumber(pnumber);
+				 op.setOtime(otime);
+				 op.setOdate(odate);
+				 return op;
+			 }
+			 else
+			 {
+				 return list.get(0);
+			 }
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
 }

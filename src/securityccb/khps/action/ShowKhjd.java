@@ -118,13 +118,7 @@ public class ShowKhjd {
 	{
 		Session session = HibernateSessionFactory.getSession();
  	    Transaction trans = session.beginTransaction();
- 	    
  	    KhpsDAO khdao = new KhpsDAO();
- 	    OperateDAO opdao=new OperateDAO();
- 	    
- 	    UserInfo ui=new UserInfo();
- 	    UserInfoDAO uidao=new UserInfoDAO();
- 	    
  	    JiGouDAO jgdao=new JiGouDAO();
  	    int jigounum=0;
  	    List<JiGou> jglist=new ArrayList<JiGou>();

@@ -273,9 +273,140 @@ public class ExportExcel<T> {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
     }
-
     
+    /**
+     * 可以重复添加sheet，最后一定要加
+     * workbook.write(out);
+     * @param title
+     * @param headers
+     * @param dataset
+     */
+
+    public void exportExcelAddOne(HSSFWorkbook workbook, String title, String[] headers,
+            Collection<T> dataset) {
+        // 生成一个表格
+        HSSFSheet sheet = workbook.createSheet(title);
+        // 设置表格默认列宽度为15个字节
+        sheet.setDefaultColumnWidth((short) 20);
+        // 生成一个样式
+        HSSFCellStyle style = workbook.createCellStyle();//表头样式
+        // 设置这些样式
+        style.setFillForegroundColor(HSSFColor.SKY_BLUE.index);
+        style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+        style.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+        style.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+        style.setBorderRight(HSSFCellStyle.BORDER_THIN);
+        style.setBorderTop(HSSFCellStyle.BORDER_THIN);
+        style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        // 生成一个字体
+        HSSFFont font = workbook.createFont();
+        font.setColor(HSSFColor.VIOLET.index);
+        font.setFontHeightInPoints((short) 12);
+        font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+        // 把字体应用到当前的样式
+        style.setFont(font);
+        // 生成并设置另一个样式
+        HSSFCellStyle style2 = workbook.createCellStyle();
+        style2.setFillForegroundColor(HSSFColor.WHITE.index);
+        style2.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+        style2.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+        style2.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+        style2.setBorderRight(HSSFCellStyle.BORDER_THIN);
+        style2.setBorderTop(HSSFCellStyle.BORDER_THIN);
+        style2.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        style2.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
+        // 生成另一个字体
+        HSSFFont font2 = workbook.createFont();
+        font2.setBoldweight(HSSFFont.BOLDWEIGHT_NORMAL);
+        // 把字体应用到当前的样式
+        style2.setFont(font2);
+
+        // 声明一个画图的顶级管理器
+        HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
+        // 定义注释的大小和位置,详见文档
+        HSSFComment comment = patriarch.createComment(new HSSFClientAnchor(0,
+                0, 0, 0, (short) 4, 2, (short) 6, 5));
+        // 设置注释内容
+        comment.setString(new HSSFRichTextString("可以在POI中添加注释！"));
+        // 设置注释作者，当鼠标移动到单元格上是可以在状态栏中看到该内容.
+        comment.setAuthor("leno");
+
+        // 产生表格标题行
+        HSSFRow row = sheet.createRow(0);
+        for (short i = 0; i < headers.length; i++) {
+            @SuppressWarnings("deprecation")
+           // HSSFCell cell = row.createCell((short) (celln + 1));   
+			HSSFCell cell = row.createCell(i);
+            cell.setCellStyle(style);
+            HSSFRichTextString text = new HSSFRichTextString(headers[i]);
+            cell.setCellValue(text);
+        }
+        //begin row,begin col,end row,end col//合并单元格
+        //sheet.addMergedRegion(new Region(0,(short)0,0,(short)5));   
+        // 遍历集合数据，产生数据行
+        Iterator<T> it = dataset.iterator();
+        int index = 0;
+        
+        while (it.hasNext()) {
+            index++;
+            row = sheet.createRow(index);
+            T t = (T) it.next();
+            // 利用反射，根据javabean属性的先后顺序，动态调用getXxx()方法得到属性值
+            Field[] fields = t.getClass().getDeclaredFields();
+            int j=fields.length;
+            for (short i = 0; i < fields.length; i++) {
+                @SuppressWarnings("deprecation")
+				HSSFCell cell = row.createCell(i);
+                cell.setCellStyle(style2);
+                Field field = fields[i];
+                String fieldName = field.getName();
+                String getMethodName = "get"
+                        + fieldName.substring(0, 1).toUpperCase()
+                        + fieldName.substring(1);
+                try {
+                    Class tCls = t.getClass();
+                    Method getMethod = tCls.getMethod(getMethodName,
+                            new Class[] {});
+                    Object value = getMethod.invoke(t, new Object[] {});
+                    // 判断值的类型后进行强制类型转换
+                    String strValue = "";
+                	if(value!=null)
+                	{
+                		strValue = value.toString();
+                	}
+                	cell.setCellValue(strValue);
+                	cell.setCellType(HSSFCell.CELL_TYPE_STRING);
+                } catch (SecurityException e) {
+                    // TODO Auto-generated catch block
+                	 System.out.println("first i="+i);
+                    e.printStackTrace();
+                   
+                } catch (NoSuchMethodException e) {
+                    // TODO Auto-generated catch block
+                	 System.out.println("2 i="+i);
+                    e.printStackTrace();
+                   
+                } catch (IllegalArgumentException e) {
+                    // TODO Auto-generated catch block
+                	System.out.println("3 i="+i+"' index="+index+"' fieldName="+fieldName);
+                	e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    // TODO Auto-generated catch block
+                	System.out.println("4 i="+i);
+                	e.printStackTrace();
+                    
+                } catch (InvocationTargetException e) {
+                    // TODO Auto-generated catch block
+                	System.out.println("5 i="+i);
+                	e.printStackTrace();
+                    
+                } finally {
+                    // 清理资源
+                }
+            }
+
+        }
+    }
 	
 }

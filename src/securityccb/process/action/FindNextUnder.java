@@ -118,7 +118,7 @@ public class FindNextUnder {
 				
 			else if(jigoutype.equalsIgnoreCase("M" ))
 			{
-				List<JiGou> temp=new ArrayList();
+				List<JiGou> temp=new ArrayList<JiGou>();
 				temp=jgdao.findByJigouid(jigouid);
 				jg=temp.get(0);
 				temp_jg=jg.getRemark1().substring(0,3);//主中心机构id
