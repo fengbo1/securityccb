@@ -22,8 +22,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="<%=path%>/css/cccx.css" />
-<link rel="stylesheet" type="text/css" href="<%=path%>/css/styles.css" />
+<link rel="stylesheet" type="text/css" href="<%=path%>/css/cccx_old.css" />
+<link rel="stylesheet" type="text/css" href="<%=path%>/css/style_old.css" />
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -261,6 +261,37 @@ function frame(o)
 	
 	}
 </script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	/* 滑动/展开 */
+	$("ul.expmenu li > div.header").click(
+	function()
+	{
+		var arrow = $(this).find("span.arrow");
+	
+		$(this).parent().find("ul.menu1").slideToggle("fast").parents(".a").siblings(".a").children("ul.menu1").hide(300);
+	}
+);
+	$(".cc").click(
+			function()
+			{
+				$(".cc").css("width","155px");
+				$(this).css("width","168px");	
+			}
+			);
+});
+</script>
+<style media="print" type="text/css"> 
+.noprint{display:none;} 
+</style> 
+<style>
+.menu1 ol { padding-left:15px; border:#E7E7E7 1px solid; border-top:none;background: #f7f2e5;}
+.menu1 li i{background-color: #ae9c7e;padding: 1px 4px;color: #fff;text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.8);font-family: 宋体;font-style:normal;}
+.menu1 a{color: #3f3f3f;text-decoration: none;}
+.menu1 .no {display:none;}
+.menu1 ol a{width: 228px;display: block;line-height: 2em;margin-left: 20px;}
+</style>
 
 </head>
 			 
@@ -294,7 +325,7 @@ function frame(o)
 					<b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b
 						class="b1b"></b>
 				</div>
-				<div class="menu" style="margin-top:5px;background-color:#188AE7;">
+				<div class="menu1" style="margin-top:5px;background-color:#188AE7;">
 					<ul class="expmenu">
 					
 				  <%if(quanxian.equals("1")||role.equals("1")||role.equals("2")||role.equals("3")){ %>					
@@ -302,20 +333,20 @@ function frame(o)
 							<div class="header">
 								<span class="label">年度考核</span>
 							</div>
-							<ul class="menu" >
+							<ul class="menu1" >
 							<c:if test="${fb:canpingfen()}">
 							
 							<c:if test="${quanxian=='1'}">
-								<li onclick="frame('j_ndzp')">年度自评</li>
+								<li class="cc"  onclick="frame('j_ndzp')">年度自评</li>
 								</c:if>
 								<c:if test="${quanxian!='1'}">
-								<li onclick="frame('j_zpsh')">待处理考核事项</li>
+								<li class="cc"  onclick="frame('j_zpsh')">待处理考核事项</li>
 								</c:if>
-								<li onclick="frame('j_kpcx')">考核情况查询</li>
+								<li class="cc"  onclick="frame('j_kpcx')">考核情况查询</li>
 								</c:if>
-								<li onclick="frame('j_kpxm')">考核目标及标准</li>
+								<li class="cc"  onclick="frame('j_kpxm')">考核目标及标准</li>
 								<c:if test="${quanxian=='1'}">	
-								<li onclick="frame('j_import')">导出</li>
+								<li class="cc"  onclick="frame('j_import')">导出</li>
 								</c:if>															
 							</ul></li> <%} %>
 							<%if(quanxian.equals("2")||quanxian.equals("1")||role.equals("0")||role.equals("1")||role.equals("2")||role.equals("3")){ %>
@@ -323,58 +354,58 @@ function frame(o)
 							<div class="header">
 								<span class="label">日常管理</span>
 							</div>
-							<ul class="menu">
-								<li onclick="frame('record')">工作日志</li>
+							<ul class="menu1">
+								<li class="cc"  onclick="frame('record')">工作日志</li>
 							</ul></li>
 							 <%} %>
 							   <li class="a">
 							<div class="header">
 								<span class="label">应急管理</span>
 							</div>
-							<ul class="menu">								
-								<li onclick="frame('ya')">应急预案</li>
-								<li onclick="frame('address')">员工应急联络</li>
-								<li onclick="frame('othercompany')">外部单位应急联络</li>
+							<ul class="menu1">								
+								<li class="cc"  onclick="frame('ya')">应急预案</li>
+								<li class="cc"  onclick="frame('address')">员工应急联络</li>
+								<li class="cc"  onclick="frame('othercompany')">外部单位应急联络</li>
 							</ul></li>	
 					<li class="a">
 							<div class="header">
 								<span class="label">值班管理</span>
 							</div>
-							<ul class="menu">
-								<li class="frame" onclick="frame('paiban')">安防排班</li>
-								<li class="frame" onclick="frame('zhibanneirong')">值班内容</li>								
-	                        	<li class="frame" onclick="frame('zhiban')">值班登记</li>
-								<li class="frame" onclick="frame('zhibanfind')">值班查询</li>
+							<ul class="menu1">
+								<li class="cc" onclick="frame('paiban')">安防排班</li>
+								<li class="cc" onclick="frame('zhibanneirong')">值班内容</li>								
+	                        	<li class="cc" onclick="frame('zhiban')">值班登记</li>
+								<li class="cc" onclick="frame('zhibanfind')">值班查询</li>
 							</ul></li>			
                  						
 					<li class="a">
 							<div class="header">
 								<span class="label">通知通告</span>
 							</div>
-							<ul class="menu">
-								<li class="frame" onclick="frame('tbzh')">总行</li>
-								<li class="frame" onclick="frame('tbfh')">分行</li>
-								<li class="frame" onclick="frame('tbzx')">中心</li>
-								<li class="frame" onclick="frame('tbwb')">外部单位</li>
+							<ul class="menu1">
+								<li class="cc" onclick="frame('tbzh')">总行</li>
+								<li class="cc" onclick="frame('tbfh')">分行</li>
+								<li class="cc" onclick="frame('tbzx')">中心</li>
+								<li class="cc" onclick="frame('tbwb')">外部单位</li>
 							</ul></li>	
 							 <%if(quanxian.equals("1")||role.equals("0")||role.equals("1")||role.equals("2")||role.equals("3")){ %>		
 				  <li class="a">
 							<div class="header">
 								<span class="label">工作计划</span>
 							</div>
-							<ul class="menu">
-								<li onclick="frame('plan')">工作计划</li>
+							<ul class="menu1">
+								<li class="cc"  onclick="frame('plan')">工作计划</li>
 							</ul></li>			
 							<%} %>
 					<li class="a">
 							<div class="header">
 								<span class="label">制度文件</span>
 							</div>
-							<ul class="menu">
-								<li class="frame" onclick="frame('zdzh')">总行</li>
-								<li class="frame" onclick="frame('zdfh')">分行</li>
-								<li class="frame" onclick="frame('zdzx')">中心</li>
-								<li class="frame" onclick="frame('zdwb')">外部单位</li>
+							<ul class="menu1">
+								<li class="cc" onclick="frame('zdzh')">总行</li>
+								<li class="cc" onclick="frame('zdfh')">分行</li>
+								<li class="cc" onclick="frame('zdzx')">中心</li>
+								<li class="cc" onclick="frame('zdwb')">外部单位</li>
 							</ul></li>								
 						
 						<!--  管理员有人员管理权限-->
@@ -383,11 +414,11 @@ function frame(o)
 							<div class="header">
 								<span class="label">系统管理</span>
 							</div>
-							<ul class="menu">
-								<li onclick="frame('chu')">处室管理</li>
-								<li onclick="frame('userinfo')">人员管理</li>
-								<li onclick="frame('area')">责任区管理</li>
-					            <li onclick="frame('jgxq')">机构详情</li>
+							<ul class="menu1">
+								<li class="cc" onclick="frame('chu')">处室管理</li>
+								<li class="cc" onclick="frame('userinfo')">人员管理</li>
+								<li class="cc" onclick="frame('area')">责任区管理</li>
+					            <li class="cc" onclick="frame('jgxq')">机构详情</li>
 							</ul></li><%} %>
 					</ul>
 				</div>

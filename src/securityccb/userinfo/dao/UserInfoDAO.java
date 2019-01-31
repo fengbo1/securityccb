@@ -338,12 +338,12 @@ public class UserInfoDAO extends BaseHibernateDAO  {
 			
 			if(role.equals("2"))//不管正副主任，找出分管安保的那个
 			{
-				queryString = "from UserInfo  where substr(position,1,5)='"
-					+ position.substring(0,5) +"' and quanxian='4' and role in('1','2')";
+				queryString = "from UserInfo  where substr(position,1,3)='"
+					+ position.substring(0,3) +"' and quanxian='4' and role in('1','2')";
 			}
 			else
-				queryString = "from UserInfo  where substr(position,1,5)='"
-					+ position.substring(0,5) +"' and role='"+role+"'";
+				queryString = "from UserInfo  where substr(position,1,6)='"
+					+ position.substring(0,6) +"' and role='"+role+"'";
 			
 			
 			Query queryObject = getSession().createQuery(queryString);

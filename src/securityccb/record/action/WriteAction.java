@@ -589,7 +589,7 @@ public class WriteAction {
 		 re.setUrl8(url8);
 		 re.setRemark2(dtu.getStringDate());
 	     RecordDAO red=new RecordDAO();		
-		 red.save(re);
+		 red.merge(re);
 	}
 	public List<Score> syssum(String jigouid,String year,Session session) 
 	{    
@@ -757,7 +757,7 @@ public class WriteAction {
 	{
 		Query query;
 		List mylist = null;
-			String sql="update score set score= CAST("+score+"*sub AS DECIMAL(18,1)) where jigouid='"+jigouid+"' and item='"+item+"' and num='"+num+"' and year='"+year+"'";	
+			String sql="update score set score= CAST("+score+"*sub*ifxz AS DECIMAL(18,1)) where jigouid='"+jigouid+"' and item='"+item+"' and num='"+num+"' and year='"+year+"'";// and pnumber=''	
 			System.out.println(sql);		
 			query  = session.createSQLQuery(sql).addEntity(Record.class);		
 			query.executeUpdate();	

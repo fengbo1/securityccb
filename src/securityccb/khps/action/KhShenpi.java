@@ -168,8 +168,7 @@ public class KhShenpi {
  			op.setRemark1(textfield);
  			op.setRemark2("");
  			op.setRemark3("");
- 			
- 			if(thisunder==null||thisunder.equals("999"))//只改分不影响流程
+ 			if(thisunder==null||thisunder.equals("999")||!ui.getNewnumber().equals(kp.getThisunder()))//只改分不影响流程
  			{
  				op.setViewoption(4);
  			}

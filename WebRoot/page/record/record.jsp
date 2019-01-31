@@ -119,7 +119,7 @@ $("tr.btbj:even").css({"background-color":"#bfd3fc","font-family": "黑体","fon
 						<td colspan="3">  <a class="button small blue" href="<%=path%>/page/record/record_add.jsp?ltmd=${last_three_month_date}">新增</a>
 						
 						</td>
-					    </td></tr></c:if>
+					    </tr></c:if>
 					    <%} %>
 						<tr height="50px" class="表格表头背景1" id="hang">
 					

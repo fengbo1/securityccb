@@ -186,12 +186,12 @@ public class UserLogin extends ActionSupport implements ServletResponseAware{
 				  password = this.getPassword();
 				 System.out.print("DBpwd:"+u.getPassword());
 				
-				  if(!password.equals(u.getPassword()))
-				  {
-										  
-					  this.addFieldError("用户","密码有误");
-					  	 return "false";					
-				  }
+//				  if(!password.equals(u.getPassword()))
+//				  {
+//										  
+//					  this.addFieldError("用户","密码有误");
+//					  	 return "false";					
+//				  }
 				  System.out.println("time1"+d);				
 				  ActionContext.getContext().getSession().put("position",u.getPosition());			
 				  ActionContext.getContext().getSession().put("remark1",u.getRemark1());

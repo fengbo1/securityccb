@@ -66,7 +66,6 @@ for(var i=0;i<one.length;i++){
 
 
 if((newnumber!=newnumber1 && newnumber!=newnumber2)&& !($("#flag").is(':checked'))){
-   
    alert("您不在值班计划中无法值班");
      return false;
                     

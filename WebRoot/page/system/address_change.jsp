@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								style="color: #1778C2; padding-top: 15px; padding-bottom: 15px; border: 0px; font-size: 26px; font-family: '黑体';"
 								colspan="11" align="center" bordercolor="#FFFFFF"><b>员工应急联络修改</b>						
 							</td>	
-							<td><input type="hidden" value="${id}"  name="id">${id}
+							<td><input type="hidden" value="${id}"  name="id">
 							<input type="hidden" value="${position}"  name="position">
 							</td>					
 </tr>

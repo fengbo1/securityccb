@@ -298,6 +298,8 @@ public class ChushihuaAction {
 			ScoreFlag sf = sfdao.findByIsNew(1);
 			if(sf!=null)
 			{
+				sql = "delete from score where year='"+sf.getYear()+"' and jigouid='"+jigouid+"'";
+				session.createSQLQuery(sql).executeUpdate();
 				for(int i=0;i<listk.size();i++)
 		    	{
 		    		Kpxm k = listk.get(i);
@@ -343,8 +345,8 @@ public class ChushihuaAction {
 				if(indx.length()>0)
 				{
 					indx = indx.substring(0, indx.length()-1);
-				}
-				sql = "update score set sub=CAST("+sum_all+"/"+sum_xz_score+" AS DECIMAL(18,4))";
+				}//
+				sql = "update score set sub=CAST("+sum_all+"/"+sum_xz_score+" AS DECIMAL(18,4)) where jigouid='"+jigouid+"' and year='"+sf.getYear()+"'";
 				session.createSQLQuery(sql).executeUpdate();
 				wa.update_syssum_score_alljigou(sf.getYear(),session);
 				sql = "update score set stdscore=CAST(stdscore*"+sum_all+"/"+sum_xz_score+" AS DECIMAL(18,1)),score=CAST(score*"+sum_all+"/"+sum_xz_score+" AS DECIMAL(18,1))" +

@@ -28,7 +28,13 @@
 					color:red;
 			}
 		</style>
-
+		<script type="text/javascript">
+		function new_open(url,title)
+		{
+			title=encodeURI(title);
+			window.open("<%=path%>/page/jgxq/download.jsp?url="+url+"&title="+title,"","height=300,width=500,top=400,left=600"); 
+		}
+		</script> 
 	</head>
 	<body>
 	系统管理->机构详情

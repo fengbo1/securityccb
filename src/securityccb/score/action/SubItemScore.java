@@ -221,7 +221,7 @@ public class SubItemScore {
 			{
 				lists = sdao.findAllByJgAndYear(jigouid, year);	
 				list=fnu.findNextUnder("2","");	
-				String sql = "update score set score=scoretemp where year='"+year+"' and jigouid='"+jigouid+"'";
+				String sql = "update score set score=scoretemp,remark=remarktemp where year='"+year+"' and jigouid='"+jigouid+"'";
 				session.createSQLQuery(sql).executeUpdate();
 				sumscore = sdao.findSumByYearAndJigou(jigouid, year,"scoretemp");
 			}

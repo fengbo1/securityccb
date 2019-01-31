@@ -149,7 +149,7 @@ $("tr.btbj:even").css({"background-color":"#bfd3fc","font-family": "黑体","fon
 								</div></td>
 							<td  width="70px"  align="center" valign="middle" nowrap
 								bordercolor=none><div align="center">
-									<p>自评得分${fb:doubleto1(sumscore)}</p>
+									<p>总分${fb:doubleto1(sumscore)}</p>
 								</div></td>	
 						</tr>
 				</table>

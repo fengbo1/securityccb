@@ -105,8 +105,8 @@ public class FindNextUnder {
 			{
 				
 				chu=chudao.findZHById(position.substring(0,3));
-				nextps=temp_jg+chu.getChushiid().substring(0, 3);	//本机构综合处
-				nextps=position;
+				nextps=position.substring(0,3)+chu.getChushiid().substring(0, 3);	//本机构综合处
+			//	nextps=position;
 			}
 				
 			else if(jigoutype.equalsIgnoreCase("A"))

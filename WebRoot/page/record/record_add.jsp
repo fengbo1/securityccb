@@ -45,7 +45,7 @@
 				jifen+="【管理机构】中：&nbsp;&nbsp;&nbsp;";
 				jifen+="年内要对安全管理人员进行2次以上安全保卫业务教育培训，<br/>";
 				jifen+="每进行教育培训一次得1分，累计得分不超过2分。是否需系统自动计分？";
-				jifen+="<input type='radio' name='gljg' value='yes'/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				jifen+="<input type='radio' name='gljg' value='yes' checked/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 				jifen+="<input type='radio' name='gljg' value='no'/>否";
 				jifen+="<br/>";
 				jifen+="<br/>";
@@ -56,7 +56,7 @@
 				jifen+="【隐患排查】中：&nbsp;&nbsp;&nbsp;";
 				jifen+="定期组织自查，发现问题，及时处理。每月组织一次自查，<br/>";
 				jifen+="每次自查得1/3分。是否需系统自动计分？";
-				jifen+="<input type='radio' name='yhpc' value='yes'/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				jifen+="<input type='radio' name='yhpc' value='yes' checked/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 				jifen+="<input type='radio' name='yhpc' value='no'/>否";
 				jifen+="<br/>";
 				jifen+="<br/>";
@@ -67,7 +67,7 @@
 				jifen+="【应急预案】中：&nbsp;&nbsp;&nbsp;";
 				jifen+="适时组织有关人员进行实际演练，遇有情况能够妥善应对，<br/>";
 				jifen+="每组织一次演练得1.5分，累计得分不超过3分。是否需系统自动计分？";
-				jifen+="<input type='radio' name='yjya' value='yes'/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				jifen+="<input type='radio' name='yjya' value='yes' checked/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 				jifen+="<input type='radio' name='yjya' value='no'/>否";
 				jifen+="<br/>";
 				jifen+="<br/>";
@@ -78,7 +78,7 @@
 				jifen+="【保安人员管理】中：&nbsp;&nbsp;&nbsp;";
 				jifen+="各种应对突发事件预案健全完善，定期组织训练演练，<br/>";
 				jifen+="预案体系完整，每组织演练一次得1分，累计得分不超过2分。是否需系统自动计分？";
-				jifen+="<input type='radio' name='barygl' value='yes'/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				jifen+="<input type='radio' name='barygl' value='yes' checked/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 				jifen+="<input type='radio' name='barygl' value='no'/>否";
 				jifen+="<br/>";
 				jifen+="<br/>";
@@ -89,7 +89,7 @@
 				jifen+="【技防管理】中：&nbsp;&nbsp;&nbsp;";
 				jifen+="各种应对突发事件预案健全完善，定期组织训练演练，<br/>";
 				jifen+="预案体系完整，每组织演练一次得1分，累计得分不超过2分。是否需系统自动计分？";
-				jifen+="<input type='radio' name='jfgl' value='yes'/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				jifen+="<input type='radio' name='jfgl' value='yes' checked/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 				jifen+="<input type='radio' name='jfgl' value='no'/>否";
 				jifen+="<br/>";
 				jifen+="<br/>";
@@ -100,7 +100,7 @@
 				jifen+="【消防管理】中：&nbsp;&nbsp;&nbsp;";
 				jifen+="消防预案健全完善，定期组织训练演练，<br/>";
 				jifen+="预案体系完整，每组织演练一次得1分，累计得分不超过2分。是否需系统自动计分？";
-				jifen+="<input type='radio' name='xfgl' value='yes'/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				jifen+="<input type='radio' name='xfgl' value='yes' checked/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 				jifen+="<input type='radio' name='xfgl' value='no'/>否";
 				jifen+="<br/>";
 				jifen+="<br/>";
@@ -111,7 +111,7 @@
 				jifen+="【安全保密】中：&nbsp;&nbsp;&nbsp;";
 				jifen+="经常进行安全保密教育，员工保密意识强，<br/>";
 				jifen+="每组织安全保密教育一次得1分，累计得分不超过3分。是否需系统自动计分？";
-				jifen+="<input type='radio' name='aqbm' value='yes'/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				jifen+="<input type='radio' name='aqbm' value='yes' checked/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 				jifen+="<input type='radio' name='aqbm' value='no'/>否";
 				jifen+="<br/>";
 				jifen+="<br/>";
@@ -122,7 +122,7 @@
 				jifen+="【安全教育】中：&nbsp;&nbsp;&nbsp;";
 				jifen+="经常开展法制和安全教育，认真做好重点人员帮教工作，<br/>";
 				jifen+="每组织一次培训得1分，累计得分不超过2分。是否需系统自动计分？";
-				jifen+="<input type='radio' name='aqjy' value='yes'/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				jifen+="<input type='radio' name='aqjy' value='yes' checked/>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 				jifen+="<input type='radio' name='aqjy' value='no'/>否";
 				jifen+="<br/>";
 				jifen+="<br/>";

@@ -247,16 +247,17 @@ function xiazai()
 												
 		</table>
 		<br><br><br><br><br></div></td></tr>
-		<c:if test="${tuisongbz==1}">
 		<tr><td colspan="2" align="center">
 		<input style="width:140px" type="button" onclick='tijiao()' value='提交部领导审批' >
 		</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-		<tr><td>&nbsp;&nbsp;</td></tr></c:if>
+		<tr><td>&nbsp;&nbsp;</td></tr>
+		<!-- 
         <c:if test="${tuisongbz==0}">
 		<tr><td colspan="2" align="center">
 		<input style="width:140px;color:gray" type="button" onclick='' value='提交部领导审批'>
 		</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 		<tr><td>&nbsp;&nbsp;</td></tr></c:if>
+		 -->
 		<c:if test="${flist.size()>0}">
 		<tr><td colspan="2" align="center">
 		<input type="hidden" name="year" value="${flist.get(0).getRemark3()}"/>
