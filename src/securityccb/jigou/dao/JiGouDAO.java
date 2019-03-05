@@ -257,7 +257,7 @@ public class JiGouDAO extends BaseHibernateDAO  {
 			throw re;
 		}
 	}
-    public String findJigouNameByJigouid(String jigouid) {////通过处室ID查询机构
+    public String findJigouNameByJigouid(String jigouid) {
 		log.debug("finding all JiGou instances");
 		try {
 			String queryString = "from JiGou where jigouid = '"+jigouid+"'";		
@@ -330,6 +330,35 @@ public class JiGouDAO extends BaseHibernateDAO  {
 			 {
 				return list.get(0); 
 			 }
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+    public String findMaxJigou() {
+		log.debug("finding all JiGou instances");
+		try {
+			int max = 1;
+			String sql = "SELECT max(jigouid) from jigou";		
+	         Object obj = getSession().createSQLQuery(sql).uniqueResult();
+	         if(obj!=null)
+	         {
+	        	 max = Integer.valueOf(obj.toString());
+	        	 max+=1;
+	         }
+	         if(max<100)
+	         {
+	        	 return "0"+max;
+	         }
+	         else if(max<10)
+	         {
+	        	return "00"+max; 
+	         }
+	         else
+	         {
+	        	 return String.valueOf(max);
+	         }
+	         
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
 			throw re;

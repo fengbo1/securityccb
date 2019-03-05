@@ -20,7 +20,6 @@
 		</action>
 		<action name="userinfo" class="securityccb.userinfo.action.UserInfoAction">
 			<result name="success">/page/system/user.jsp</result>
-			
 		</action>
 		<action name="userDel" class="securityccb.userinfo.action.UserInfoDel">
 			<result name="success">/page/system/user_del_success.jsp</result>			
@@ -60,7 +59,15 @@
 		<action name="userfind" class="securityccb.userinfo.action.UserInfoAction">
 			<result name="success">/page/system/user.jsp</result>			
 		</action>
-  
-  
+  		<action name="fankuiadd" class="securityccb.userinfo.action.FanKuiAdd">
+			<result name="success">/page/system/fankuilistbefore.jsp</result>			
+		</action>
+		<action name="fankuidel" class="securityccb.userinfo.action.FanKuiDel">
+			<result name="success">/page/system/fankuilistbefore.jsp</result>			
+		</action>
+ 		 <action name="fankuilist" class="securityccb.userinfo.action.FanKuiList">
+			<result name="success">/page/system/fankuilist.jsp</result>		
+			<result name="successanbao">/page/system/fankuilistab.jsp</result>	
+		</action>
 	</package>
 </struts>    

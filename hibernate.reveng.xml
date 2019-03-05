@@ -69,11 +69,11 @@
 			<generator class="native"></generator>
 		</primary-key>
 	</table>
-<table name="scoreflag" catalog="securityccb" class="ScoreFlag">
-	<primary-key>
-		<generator class="native"></generator>
-	</primary-key>
-</table>
+	<table name="scoreflag" catalog="securityccb" class="ScoreFlag">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
 	<table name="operate" catalog="securityccb" class="Operate">
 		<primary-key>
 			<generator class="native"></generator>
@@ -89,9 +89,14 @@
 			<generator class="native"></generator>
 		</primary-key>
 	</table>
-    <table name="ndzj" catalog="securityccb" class="Ndzj">
-	    <primary-key>
-		    <generator class="native"></generator>
-	    </primary-key>
-    </table>
+	<table name="ndzj" catalog="securityccb" class="Ndzj">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+<table name="fankui" catalog="securityccb" class="Fankui">
+	<primary-key>
+		<generator class="native"></generator>
+	</primary-key>
+</table>
 </hibernate-reverse-engineering>

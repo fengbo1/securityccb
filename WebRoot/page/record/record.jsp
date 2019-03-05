@@ -48,15 +48,16 @@ function download(f)
 	var Path = f;
 	 window.open("<%=path%>/upload/upload_record/"+f,"","height=450,width=600,top=350,left=500"); 
 }
-function del(a,url)
+function del(bid,eid,url)
 {
 	var message="请确定是否删除?";
 	if (window.confirm(message)) {
 		with(document.forms[0]) {
-			window.location='<%=path%>/delrecordurl.action?idd='+a+'&url='+url;
+			window.location='<%=path%>/delrecordurl.action?bid='+bid+'&eid='+eid+'&url='+url;
 		}
 	}
 }
+
 </script>
 
 
@@ -135,7 +136,7 @@ $("tr.btbj:even").css({"background-color":"#bfd3fc","font-family": "黑体","fon
 								bordercolor=none><div align="center">
 									<p>完成日期</p>
 								</div></td>
-							<td  width="100px"  align="center" valign="middle" nowrap
+							<td  width="140px"  align="center" valign="middle" nowrap
 								bordercolor=none><div align="center">
 									<p>对应考核项</p>
 								</div></td>	
@@ -158,7 +159,7 @@ $("tr.btbj:even").css({"background-color":"#bfd3fc","font-family": "黑体","fon
 							<c:if test="${fb:canoperate(newnumber)}">
 							<td  width="50px"  align="center" valign="middle" nowrap
 								bordercolor=none><div align="center">
-									<p>删除</p>
+									<p>操作</p>
 								</div></td>	</c:if>
 																		
 						</tr>
@@ -173,12 +174,15 @@ $("tr.btbj:even").css({"background-color":"#bfd3fc","font-family": "黑体","fon
 									</div>
 								</td>
 								<td  height="25" align="center" valign="middle" nowrap>
-									<div align="center"><fmt:formatDate value="${r.date}" pattern="yyyy-MM-dd"/>
+									<div align="center">
+									${r.date}
+									<!--fmt:formatDate value="${r.date}" pattern="yyyy-MM-dd"/-->
 									</div>
 								</td>
-								<td width="100px"   height="25" align="center" valign="middle">
+								<td width="140px"   height="25" align="center" valign="middle">
 									<div align="center">
-									${fb:khxmitemtostring(r.type)}
+									<!-- ${fb:khxmitemtostring(r.type)} -->
+									${r.type}
 									</div>
 								</td>
 								<td  width="300px" height="25" align="center" valign="middle">
@@ -190,7 +194,7 @@ $("tr.btbj:even").css({"background-color":"#bfd3fc","font-family": "黑体","fon
 									</div>
 								</td>
 								<td height="25" align="center" valign="middle">
-									<div align="center">${r.remark }
+									<div align="center">${r.remark}
 									</div>
 								</td>
 								
@@ -199,48 +203,49 @@ $("tr.btbj:even").css({"background-color":"#bfd3fc","font-family": "黑体","fon
 									<c:if test="${r.url1!='--'&&r.url1!=null}">
 										<a href="#" onclick="download('${r.url1}')">附件一</a>
 										<c:if test="${fb:canoperate(newnumber)}">
-										<a href="#" onclick="del('${r.id}','url1')">删除</a><br/></c:if>
+										<a href="#" onclick="del('${r.beginid}','${r.endid}','url1')">删除</a><br/></c:if>
 									</c:if>
 									<c:if test="${r.url2!='--'&&r.url2!=null}">
 										<a href="#" onclick="download('${r.url2}')">附件二</a>
 										<c:if test="${fb:canoperate(newnumber)}">
-										<a href="#" onclick="del('${r.id}','url2')">删除</a><br/></c:if>
+										<a href="#" onclick="del('${r.beginid}','${r.endid}','url2')">删除</a><br/></c:if>
 									</c:if>
 									<c:if test="${r.url3!='--'&&r.url3!=null}">
 										<a href="#" onclick="download('${r.url3}')">附件三</a>
 										<c:if test="${fb:canoperate(newnumber)}">
-										<a href="#" onclick="del('${r.id}','url3')">删除</a><br/></c:if>
+										<a href="#" onclick="del('${r.beginid}','${r.endid}','url3')">删除</a><br/></c:if>
 									</c:if>
 									<c:if test="${r.url4!='--'&&r.url4!=null}">
 										<a href="#" onclick="download('${r.url4}')">附件四</a>
 										<c:if test="${fb:canoperate(newnumber)}">
-										<a href="#" onclick="del('${r.id}','url4')">删除</a><br/></c:if>
+										<a href="#" onclick="del('${r.beginid}','${r.endid}','url4')">删除</a><br/></c:if>
 									</c:if>
 									<c:if test="${r.url5!='--'&&r.url5!=null}">
 										<a href="#" onclick="download('${r.url5}')">附件五</a>
 										<c:if test="${fb:canoperate(newnumber)}">
-										<a href="#" onclick="del('${r.id}','url5')">删除</a><br/></c:if>
+										<a href="#" onclick="del('${r.beginid}','${r.endid}','url5')">删除</a><br/></c:if>
 									</c:if>
 									<c:if test="${r.url6!='--'&&r.url6!=null}">
 										<a href="#" onclick="download('${r.url6}')">附件六</a>
 										<c:if test="${fb:canoperate(newnumber)}">
-										<a href="#" onclick="del('${r.id}','url6')">删除</a><br/></c:if>
+										<a href="#" onclick="del('${r.beginid}','${r.endid}','url6')">删除</a><br/></c:if>
 									</c:if>
 									<c:if test="${r.url7!='--'&&r.url7!=null}">
 										<a href="#" onclick="download('${r.url7}')">附件七</a>
 										<c:if test="${fb:canoperate(newnumber)}">
-										<a href="#" onclick="del('${r.id}','url7')">删除</a><br/></c:if>
+										<a href="#" onclick="del('${r.beginid}','${r.endid}','url7')">删除</a><br/></c:if>
 									</c:if>
 									<c:if test="${r.url8!='--'&&r.url8!=null}">
 										<a href="#" onclick="download('${r.url8}')">附件八</a>
 										<c:if test="${fb:canoperate(newnumber)}">
-										<a href="#" onclick="del('${r.id}','url8')">删除</a></c:if>
+										<a href="#" onclick="del('${r.beginid}','${r.endid}','url8')">删除</a></c:if>
 									</c:if>
 									</div>
 								</td>
 									<c:if test="${fb:canoperate(newnumber)}">
 								<td height="25" align="center" valign="middle" nowrap>
-									<div align="center"><a href="#" onclick="del('${r.id}','record')">删除</a>
+									<div align="center"><a href="#" onclick="del('${r.beginid}','${r.endid}','record')">删除</a>
+									<a href="<%=path%>/tomodrecord.action?bid=${r.beginid}&eid=${r.endid}">修改</a>
 									</div>
 								</td></c:if>
 							</tr>

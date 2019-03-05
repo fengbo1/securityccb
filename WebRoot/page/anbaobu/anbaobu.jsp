@@ -108,7 +108,15 @@ function frame(o)
 	else if(obj=="j_import")//导入导出
 		{
 		   document.getElementById("frame").src="<%=path%>/showimport.action?&position=<%=position%>";
-		}	
+		}
+	else if(obj=="fankui")
+		{
+		 document.getElementById("frame").src="<%=path%>/page/system/fankuilistbefore.jsp";
+		}
+		else if(obj=="jigou")
+		{
+		 document.getElementById("frame").src="<%=path%>/page/anbaobu/jigoubefore.jsp";
+		}		
 	}
 
 </script>
@@ -165,7 +173,15 @@ function frame(o)
 							<div class="header" onclick="frame('fxcjc')">
 								<span class="label">非现场检查</span>
 							</div>
-					</li>		
+					</li>
+					<li class="a">
+							<div class="header">
+								<span class="label">系统管理</span>
+							</div>
+							<ul class="menu">
+								<li class="frame" onclick="frame('fankui')">留言反馈</li>
+								<li class="frame" onclick="frame('jigou')">机构管理</li>
+						</ul></li>		
 					</ul>
 				</div>
 			</div>

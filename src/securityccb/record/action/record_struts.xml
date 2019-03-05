@@ -18,6 +18,11 @@
 		 <action name="delrecordurl" class="securityccb.record.action.DelRecordUrl">            
             <result name="success">/page/record/beforerecord.jsp</result>            
         </action>
-
+		 <action name="tomodrecord" class="securityccb.record.action.ToModRecord">            
+            <result name="success">/page/record/modrecord.jsp</result>            
+        </action>
+        <action name="modrecord" class="securityccb.record.action.ModRecord">            
+            <result name="success">/page/record/beforerecord.jsp</result>            
+        </action>
 	</package>
 </struts>    

@@ -79,8 +79,6 @@ public class JigouAction {
 			}
 				
 		  return jigoulist;
-		  
-		
 	}	
 		public String  findjigouzhufen(String jigouid) //通过机构ID查询主分中心
 	    {

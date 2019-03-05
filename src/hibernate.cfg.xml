@@ -61,6 +61,7 @@ yEclipse Hibernate Tools.       cdhtzx1234   root            -->
 		<mapping resource="securityccb/gzjh/pojo/Gzjh.hbm.xml" />
 		<mapping resource="securityccb/ndzj/pojo/Ndzj.hbm.xml" />
 		<mapping resource="securityccb/jgxq/pojo/Jgxq.hbm.xml" />
+		<mapping resource="securityccb/userinfo/pojo/Fankui.hbm.xml" />
 
 	</session-factory>
 

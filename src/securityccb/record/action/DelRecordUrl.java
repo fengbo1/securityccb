@@ -14,14 +14,21 @@ import ccb.hibernate.HibernateSessionFactory;
 
 public class DelRecordUrl {
 
-	private String idd;
+	private String bid;
+	private String eid;
 	private String url;
 	
-	public String getIdd() {
-		return idd;
+	public String getBid() {
+		return bid;
 	}
-	public void setIdd(String idd) {
-		this.idd = idd;
+	public void setBid(String bid) {
+		this.bid = bid;
+	}
+	public String getEid() {
+		return eid;
+	}
+	public void setEid(String eid) {
+		this.eid = eid;
 	}
 	public String getUrl() {
 		return url;
@@ -38,12 +45,12 @@ public class DelRecordUrl {
 		Session session = HibernateSessionFactory.getSession();
     	Transaction trans=session.beginTransaction();
     	try {
-    		Record r = rdao.findAllById(idd);
+    		Record r = rdao.findAllById(bid);
     		if(url.equals("record"))
     		{
     			SimpleDateFormat yearformat = new SimpleDateFormat("YYYY");
     	        String year=yearformat.format(r.getDate());
-    			sql = "delete from record where id="+idd;
+    			sql = "delete from record where id>="+bid+" and id<='"+eid+"'";
     			session.createSQLQuery(sql).executeUpdate();
     			List <Score> slist=wa.syssum(r.getJigouid(),year,session); //获取系统自动统计项目分数，写入数据库
         		for (int i=0;i<slist.size();i++){
@@ -52,7 +59,7 @@ public class DelRecordUrl {
     		}
     		else
     		{
-    			sql = "update record set "+url+"='--' where id="+idd;
+    			sql = "update record set "+url+"='--' where id>="+bid+" and id<='"+eid+"'";
     			session.createSQLQuery(sql).executeUpdate();
     		}
     		

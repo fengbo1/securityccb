@@ -272,6 +272,7 @@ public class KhpsDAO extends BaseHibernateDAO  {
 		log.debug("finding all Khps instances");
 		try {
 			String queryString = "from Khps where pnumber='"+pnum+"'";
+			System.out.println(queryString);
 	         Query queryObject = getSession().createQuery(queryString);
 			 List<Khps> list = queryObject.list();
 			 if(list.isEmpty())

@@ -254,10 +254,13 @@ function frame(o)
 		}
 	 //工作计划201806014
 		else if(obj=="plan")
-	{
+		{
 	   document.getElementById("frame").src="<%=path%>/plan1.action?position=<%=position%>&newnumber=<%=newnumber%>";
 		}
-
+		else if(obj=="fankui")
+		{
+		 document.getElementById("frame").src="<%=path%>/page/system/fankuilistbefore.jsp";
+		}
 	
 	}
 </script>
@@ -419,6 +422,7 @@ $(document).ready(function(){
 								<li class="cc" onclick="frame('userinfo')">人员管理</li>
 								<li class="cc" onclick="frame('area')">责任区管理</li>
 					            <li class="cc" onclick="frame('jgxq')">机构详情</li>
+					            <li class="cc" onclick="frame('fankui')">留言反馈</li>
 							</ul></li><%} %>
 					</ul>
 				</div>

@@ -65,6 +65,7 @@ public class Util {
 	public static final String downloadpath = basepath+"derive/" ;//下载
 	
 	public static final String recordpath = basepath+"upload/upload_record";
+	public static final String userinfopath = basepath+"downfile/down_userinfo";
 	public static final String jgxqpath = basepath+"upload/upload_jgxq";
 	public static final String jglike = "___________";//11位
 	//根据quanxian判断是否可以点击操作类按钮 处长主任老总均不可操作

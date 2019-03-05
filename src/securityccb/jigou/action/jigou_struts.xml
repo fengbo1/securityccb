@@ -18,7 +18,18 @@
 		</action>	
 		<action name="jigoutoanbaobu" class="securityccb.jigou.action.JigouToAnbaobu">
 			<result name="success">/page/anbaobutiaozhuan.jsp</result>	
-			
+		</action>
+		<action name="jigoulist" class="securityccb.jigou.action.JigouList">
+			<result name="success">/page/anbaobu/jigoulist.jsp</result>	
+		</action>
+		<action name="jigoutomod" class="securityccb.jigou.action.JiGouToMod">
+			<result name="success">/page/anbaobu/jigoumod.jsp</result>	
+		</action>
+		<action name="jigouaddbefore" class="securityccb.jigou.action.JiGouAddBefore">
+			<result name="success">/page/anbaobu/jigouadd.jsp</result>	
+		</action>
+		<action name="jigouadd" class="securityccb.jigou.action.JiGouAdd">
+			<result name="success">/page/anbaobu/jigoubefore.jsp</result>	
 		</action>
 	</package>
 </struts>    

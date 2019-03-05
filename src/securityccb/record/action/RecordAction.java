@@ -11,7 +11,9 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import securityccb.kpxm.dao.KpxmDAO;
 import securityccb.record.pojo.Record;
+import securityccb.record.pojo.RecordBean;
 import securityccb.userinfo.pojo.UserInfo;
 import securityccb.util.DateTimeUtil;
 import ccb.hibernate.HibernateSessionFactory;
@@ -24,7 +26,7 @@ public class RecordAction {
 	private String content1;
 	private String people;
 	private String remark;
-	private List<Record> rlist;
+	private List<RecordBean> rlist;
 	private String position;
 	private String last_three_month_date;
 
@@ -52,12 +54,14 @@ public class RecordAction {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	
-	public void setRlist(List<Record> rlist) {
+	public List<RecordBean> getRlist() {
+		return rlist;
+	}
+	public void setRlist(List<RecordBean> rlist) {
 		this.rlist = rlist;
 	}
-	public List<Record> getRlist() {
-		return rlist;
+	public static Log getLog() {
+		return log;
 	}
 	public void setPosition(String position) {
 		this.position = position;
@@ -86,6 +90,7 @@ public class RecordAction {
 	@SuppressWarnings("unchecked")
 	public String execute() throws Exception
 	{
+		KpxmDAO kdao = new KpxmDAO();
 		DateTimeUtil dtu = new DateTimeUtil();
 		last_three_month_date = dtu.getLastJMonthDate(3);
 		String jgid = position.substring(0, 3);
@@ -119,11 +124,62 @@ public class RecordAction {
 			{
 				sql+=" and remark like '%"+remark+"%'";
 			}
-			sql+=" order by date desc";
+			sql+=" order by date desc,content1";
 			System.out.println(sql);		
 			query  = session.createSQLQuery(sql).addEntity(Record.class);		
-			rlist=query.list();	
-			
+			List<Record> list=query.list();	
+			int m=0;
+			int n=1;
+			String tmp="";
+			String temptype="";
+			rlist = new ArrayList<RecordBean>();
+			for(int i=0;i<list.size();i++)
+			{
+				Record record = list.get(i);
+				RecordBean rb = new RecordBean();
+				if(tmp.equals(record.getContent1()))
+				{
+					n+=1;
+					temptype += "、";
+					temptype += kdao.findByItemAndNum(record.getType(), 1).getRemark2();
+				}
+				if(!tmp.equals(record.getContent1())||(i+1==list.size()))
+				{
+					if(i>0)
+					{
+						Record recordtmp = list.get(m);
+						Record recordend = list.get(i-1);
+						rb.setBeginid(recordtmp.getId());
+						rb.setEndid(recordend.getId());
+						rb.setJigouid(recordtmp.getJigouid());
+						rb.setSyssum(0);
+						rb.setType(temptype);
+						rb.setDate(recordtmp.getDate().toString().split(" ")[0]);
+						rb.setTitle(recordtmp.getTitle());
+						rb.setContent1(recordtmp.getContent1());
+						rb.setContent2(recordtmp.getContent2());
+						rb.setPeople(recordtmp.getPeople());
+						rb.setRemark(recordtmp.getRemark());
+						rb.setUrl1(recordtmp.getUrl1());
+						rb.setUrl2(recordtmp.getUrl2());
+						rb.setUrl3(recordtmp.getUrl3());
+						rb.setUrl4(recordtmp.getUrl4());
+						rb.setUrl5(recordtmp.getUrl5());
+						rb.setUrl6(recordtmp.getUrl6());
+						rb.setUrl7(recordtmp.getUrl7());
+						rb.setUrl8(recordtmp.getUrl8());
+						rb.setRemark2(recordtmp.getRemark2());
+						rb.setRemark3(recordtmp.getRemark3());
+						rb.setRemark4(recordtmp.getRemark4());
+						rlist.add(rb);
+					}
+					m=i;
+					n=1;
+					temptype = kdao.findByItemAndNum(record.getType(), 1).getRemark2();
+				}
+				tmp=record.getContent1();
+			}
+				
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -140,32 +196,6 @@ public class RecordAction {
 	
 	
 	}
-	public List findallrecord(String jigouid) 
-	{
-		Query query;
-		Session session = HibernateSessionFactory.getSession();
-		Transaction trans = session.beginTransaction();
-		List<Record> rlist=null;
-		
-		try {			
-			String sql="select * from record where jigouid='"+jigouid+"' order by date desc";	
-			System.out.println(sql);		
-			query  = session.createSQLQuery(sql).addEntity(Record.class);		
-			rlist=query.list();	
-			
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}finally{
-			trans.commit();
-			session.flush();
-			session.clear();
-			session.close();
-		}			
-		return rlist;	
-	}
-
 	}
 	
 

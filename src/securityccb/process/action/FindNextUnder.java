@@ -80,18 +80,29 @@ public class FindNextUnder {
 		{
 			
 			jindu=0;//初始进度为0
-			ui=(UserInfo)uidao.findByNewnumber(newnumber).get(0);//发起人			
+			ui=(UserInfo)uidao.findByNewnumber(newnumber).get(0);//发起人	
+			position=ui.getPosition();
+			jigouid=position.substring(0, 3);//发起人机构id
 		}
 		else
 		{
-			kp=(Khps)kpdao.findByPnumber(pnumber).get(0);
+			kp=(Khps)kpdao.findAllByPnumber(pnumber);
 			jindu=Integer.parseInt(kp.getJindu());
-			ui=(UserInfo)uidao.findByNewnumber(kp.getInitiator()).get(0);//发起人
+//			ui=(UserInfo)uidao.findByNewnumber(kp.getInitiator()).get(0);//发起人
+//			position=ui.getPosition();
+			jigouid=kp.getJigouid();//发起人机构id
+			if(jigouid.length()==2)
+			{
+				jigouid = "0"+jigouid;
+			}
+			if(jigouid.length()==1)
+			{
+				jigouid = "00"+jigouid;
+			}
 		}
 		
 		
-		position=ui.getPosition();
-		jigouid=position.substring(0, 3);//发起人机构id
+		
 		if(jindu==p.getProcess().length())//最后一个审批人
 		{
 			
@@ -104,8 +115,8 @@ public class FindNextUnder {
 			if(jigoutype.equalsIgnoreCase("B"))
 			{
 				
-				chu=chudao.findZHById(position.substring(0,3));
-				nextps=position.substring(0,3)+chu.getChushiid().substring(0, 3);	//本机构综合处
+				chu=chudao.findZHById(jigouid);
+				nextps=jigouid+chu.getChushiid().substring(0, 3);	//本机构综合处
 			//	nextps=position;
 			}
 				
