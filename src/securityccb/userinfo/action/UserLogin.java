@@ -184,7 +184,7 @@ public class UserLogin extends ActionSupport implements ServletResponseAware{
 				  role=u.getRole();
 				  name=u.getName();
 				  password = this.getPassword();
-				 System.out.print("DBpwd:"+u.getPassword());
+				  System.out.print("DBpwd:"+u.getPassword());
 				
 //				  if(!password.equals(u.getPassword()))
 //				  {

@@ -196,6 +196,27 @@ public class JiGouDAO extends BaseHibernateDAO  {
             throw re;
         }
     }
+    
+	public JiGou findAllById(int id) {
+		log.debug("finding all JiGou instances");
+		try {
+			String queryString = "from JiGou where id='"+id+"'";
+	         Query queryObject = getSession().createQuery(queryString);
+			 List<JiGou> list = queryObject.list();
+			 if(list.isEmpty())
+			 {
+				 return null;
+			 }
+			 else
+			 {
+				 return list.get(0);
+			 }
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	
     public String findSubByJigou(String jg) {
 		log.debug("finding all JiGou instances");
 		try {
@@ -346,13 +367,13 @@ public class JiGouDAO extends BaseHibernateDAO  {
 	        	 max = Integer.valueOf(obj.toString());
 	        	 max+=1;
 	         }
-	         if(max<100)
-	         {
-	        	 return "0"+max;
-	         }
-	         else if(max<10)
+	         if(max<10)
 	         {
 	        	return "00"+max; 
+	         }
+	         else if(max<100)
+	         {
+	        	 return "0"+max;
 	         }
 	         else
 	         {

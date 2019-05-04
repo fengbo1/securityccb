@@ -46,7 +46,7 @@ textarea {
 							机构名称:&nbsp;
 						</div>
 						<div class="four_columns_input">
-							<input type="text" name="title" id="title">
+							<input type="text" name="jigouname" id="jigouname">
 						</div>
 						<div class="clear"></div>
 					</div>

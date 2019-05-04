@@ -27,8 +27,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="<%=path%>/css/cccx.css" />
-<link rel="stylesheet" type="text/css" href="<%=path%>/css/styles.css" />
+<link rel="stylesheet" type="text/css" href="<%=path%>/css/cccx_old.css" />
+<link rel="stylesheet" type="text/css" href="<%=path%>/css/style_old.css" />
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -120,6 +120,34 @@ function frame(o)
 	}
 
 </script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	/* 滑动/展开 */
+	$("ul.expmenu li > div.header").click(
+	function()
+	{
+		var arrow = $(this).find("span.arrow");
+	
+		$(this).parent().find("ul.menu1").slideToggle("fast").parents(".a").siblings(".a").children("ul.menu1").hide(300);
+	}
+);
+	$(".cc").click(
+			function()
+			{
+				$(".cc").css("width","155px");
+				$(this).css("width","168px");	
+			}
+			);
+});
+</script>
+<style>
+.menu1 ol { padding-left:15px; border:#E7E7E7 1px solid; border-top:none;background: #f7f2e5;}
+.menu1 li i{background-color: #ae9c7e;padding: 1px 4px;color: #fff;text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.8);font-family: 宋体;font-style:normal;}
+.menu1 a{color: #3f3f3f;text-decoration: none;}
+.menu1 .no {display:none;}
+.menu1 ol a{width: 228px;display: block;line-height: 2em;margin-left: 20px;}
+</style>
 
 </head>
 			 
@@ -152,21 +180,21 @@ function frame(o)
 					<b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b
 						class="b1b"></b>
 				</div>
-				<div class="menu" style="margin-top:5px;background-color:#188AE7;">
+				<div class="menu1" style="margin-top:5px;background-color:#188AE7;">
 					<ul class="expmenu">
 					<li class="a">
 							<div class="header">
 								<span class="label">年度考核</span>
 							</div>
-							<ul class="menu">
+							<ul class="menu1">
 							<c:if test="${role=='3'}">
-								<li class="frame" onclick="frame('kaiguan')">考核开关</li>
+								<li class="cc" onclick="frame('kaiguan')">考核开关</li>
 								</c:if>
-								<li class="frame" onclick="frame('jgkaohe')">待处理考核事项</li>
-								<li class="frame" onclick="frame('khcx')">考核情况查询</li>
+								<li class="cc" onclick="frame('jgkaohe')">待处理考核事项</li>
+								<li class="cc" onclick="frame('khcx')">考核情况查询</li>
 								<c:if test="${role=='3'}">
-								<li onclick="frame('j_khjd')">考核进度</li>
-								<li onclick="frame('j_import')">导入</li>	
+								<li class="cc" onclick="frame('j_khjd')">考核进度</li>
+								<li class="cc" onclick="frame('j_import')">导入</li>	
 								</c:if>
 							</ul></li>								
 					<li class="a">
@@ -178,9 +206,9 @@ function frame(o)
 							<div class="header">
 								<span class="label">系统管理</span>
 							</div>
-							<ul class="menu">
-								<li class="frame" onclick="frame('fankui')">留言反馈</li>
-								<li class="frame" onclick="frame('jigou')">机构管理</li>
+							<ul class="menu1">
+								<li class="cc" onclick="frame('fankui')">留言反馈</li>
+								<li class="cc" onclick="frame('jigou')">机构管理</li>
 						</ul></li>		
 					</ul>
 				</div>
